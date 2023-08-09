@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductCmpt productCmptType="hausrat.HausratProdukt" runtimeId="hausrat.HR-Optimal 2023-01" validFrom="2023-01-01" xml:space="preserve">
+ <validTo isNull="true"/>
+ <Description locale="de"/>
+ <AttributeValue attribute="produktname" templateValueStatus="defined">
+  <Value isNull="false" valueType="SingleValue">Hausrat Optimal</Value>
+ </AttributeValue>
+</ProductCmpt>
