@@ -9,6 +9,45 @@
  <AttributeValue attribute="produktname" templateValueStatus="defined">
   <Value isNull="false" valueType="SingleValue">Hausrat Optimal</Value>
  </AttributeValue>
+ <ConfiguredValueSet attribute="versSumme" templateValueStatus="defined">
+  <ValueSet abstract="false">
+   <Range containsNull="false">
+    <LowerBound>10000.00 EUR</LowerBound>
+    <UpperBound>5000000.00 EUR</UpperBound>
+    <Step isNull="true"/>
+   </Range>
+  </ValueSet>
+ </ConfiguredValueSet>
+ <ConfiguredDefault attribute="versSumme" isNull="true" templateValueStatus="defined"/>
+ <ConfiguredValueSet attribute="wohnflaeche" templateValueStatus="defined">
+  <ValueSet abstract="false">
+   <Range containsNull="false">
+    <LowerBound>0</LowerBound>
+    <UpperBound>200</UpperBound>
+    <Step isNull="true"/>
+   </Range>
+  </ValueSet>
+ </ConfiguredValueSet>
+ <ConfiguredDefault attribute="wohnflaeche" isNull="true" templateValueStatus="defined"/>
+ <ConfiguredValueSet attribute="zahlweise" templateValueStatus="defined">
+  <ValueSet abstract="false">
+   <Enum>
+    <Value>
+     <Data>1</Data>
+    </Value>
+    <Value>
+     <Data>2</Data>
+    </Value>
+    <Value>
+     <Data>4</Data>
+    </Value>
+    <Value>
+     <Data>12</Data>
+    </Value>
+   </Enum>
+  </ValueSet>
+ </ConfiguredValueSet>
+ <ConfiguredDefault attribute="zahlweise" templateValueStatus="defined">12</ConfiguredDefault>
  <Link association="HausratGrunddeckungstyp" defaultCardinality="1" maxCardinality="1" minCardinality="1" target="produkte_2023.HRD-Optimal 2023-01" templateValueStatus="defined">
   <Description locale="de"/>
  </Link>

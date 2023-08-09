@@ -6,7 +6,7 @@
   <Label locale="en"/>
   <Description locale="en"/>
  </Association>
- <Attribute attributeType="changeable" changingOverTime="true" datatype="Integer" modifier="published" name="zahlweise" since="0.0.1">
+ <Attribute attributeType="changeable" changingOverTime="false" datatype="Integer" modifier="published" name="zahlweise" since="0.0.1" valueSetConfiguredByProduct="true">
   <DefaultValue isNull="true"/>
   <Label locale="en"/>
   <Description locale="en"/>
@@ -23,9 +23,6 @@
     </Value>
     <Value>
      <Data>12</Data>
-    </Value>
-    <Value>
-     <Data isNull="true"/>
     </Value>
    </Enum>
   </ValueSet>
@@ -48,7 +45,7 @@
    <AllValues containsNull="true"/>
   </ValueSet>
  </Attribute>
- <Attribute attributeType="changeable" changingOverTime="true" datatype="Integer" modifier="published" name="wohnflaeche" since="0.0.1">
+ <Attribute attributeType="changeable" changingOverTime="false" datatype="Integer" modifier="published" name="wohnflaeche" since="0.0.1" valueSetConfiguredByProduct="true">
   <DefaultValue isNull="true"/>
   <Label locale="en"/>
   <Description locale="en"/>
@@ -68,7 +65,7 @@
    <AllValues containsNull="true"/>
   </ValueSet>
  </Attribute>
- <Attribute attributeType="changeable" changingOverTime="true" datatype="Money" modifier="published" name="versSumme" since="0.0.1">
+ <Attribute attributeType="changeable" changingOverTime="false" datatype="Money" modifier="published" name="versSumme" since="0.0.1" valueSetConfiguredByProduct="true">
   <DefaultValue isNull="true"/>
   <Label locale="en"/>
   <Description locale="en"/>

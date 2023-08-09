@@ -84,8 +84,9 @@ public class HausratGrunddeckung extends AbstractModelObject
 
 	/**
 	 * Erzeugt eine neue Instanz von HausratGrunddeckung.
-	 * 
+	 *
 	 * @since 0.0.1
+	 *
 	 * @generated
 	 */
 	@IpsGenerated
@@ -144,7 +145,7 @@ public class HausratGrunddeckung extends AbstractModelObject
 	/**
 	 * Gibt HausratGrunddeckungstyp zurueck, welches HausratGrunddeckung
 	 * konfiguriert.
-	 * 
+	 *
 	 * @generated
 	 */
 	@IpsGenerated
@@ -154,7 +155,7 @@ public class HausratGrunddeckung extends AbstractModelObject
 
 	/**
 	 * Setzt neuen HausratGrunddeckungstyp.
-	 * 
+	 *
 	 * @param hausratGrunddeckungstyp                Der neue
 	 *                                               HausratGrunddeckungstyp.
 	 * @param initPropertiesWithConfiguratedDefaults <code>true</code> falls die
@@ -162,6 +163,7 @@ public class HausratGrunddeckung extends AbstractModelObject
 	 *                                               Defaultwerten aus
 	 *                                               HausratGrunddeckungstyp belegt
 	 *                                               werden sollen.
+	 *
 	 * @generated
 	 */
 	@IpsGenerated
@@ -175,7 +177,7 @@ public class HausratGrunddeckung extends AbstractModelObject
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -186,7 +188,7 @@ public class HausratGrunddeckung extends AbstractModelObject
 
 	/**
 	 * Setzt die aktuelle ProductComponent.
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -208,7 +210,7 @@ public class HausratGrunddeckung extends AbstractModelObject
 	 * <p>
 	 * Ableitungen koennen das Verhalten durch Ueberschreiben der Methode
 	 * {@link #resetProductCmptGenerationAfterEffectiveFromHasChanged()} aendern.
-	 * 
+	 *
 	 * @generated
 	 */
 	@IpsGenerated
@@ -223,7 +225,7 @@ public class HausratGrunddeckung extends AbstractModelObject
 	 * <p>
 	 * Die Methode kann ueberschrieben werden, um das Verhalten bei Aenderung des
 	 * Wirksamkeitsdatums zu beeinflussen.
-	 * 
+	 *
 	 * @generated
 	 */
 	@IpsGenerated
@@ -233,7 +235,7 @@ public class HausratGrunddeckung extends AbstractModelObject
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -262,7 +264,7 @@ public class HausratGrunddeckung extends AbstractModelObject
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -343,7 +345,7 @@ public class HausratGrunddeckung extends AbstractModelObject
 
 	/**
 	 * Kopiert den Produktbaustein und die Generation aus dem referenzierten Objekt.
-	 * 
+	 *
 	 * @generated
 	 */
 	@IpsGenerated
