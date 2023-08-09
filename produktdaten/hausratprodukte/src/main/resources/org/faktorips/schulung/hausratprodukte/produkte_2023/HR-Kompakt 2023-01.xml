@@ -8,6 +8,9 @@
  <AttributeValue attribute="produktname" templateValueStatus="defined">
   <Value isNull="false" valueType="SingleValue">Hausrat Kompakt</Value>
  </AttributeValue>
+ <AttributeValue attribute="vorschlagVersSummeProQm" templateValueStatus="defined">
+  <Value isNull="false" valueType="SingleValue">600.00 EUR</Value>
+ </AttributeValue>
  <ConfiguredValueSet attribute="versSumme" templateValueStatus="defined">
   <ValueSet abstract="false">
    <Range containsNull="false">

@@ -18,6 +18,14 @@
    <AllValues containsNull="true"/>
   </ValueSet>
  </Attribute>
+ <Attribute changingOverTime="false" datatype="Money" modifier="published" name="vorschlagVersSummeProQm" since="0.0.1" visible="true">
+  <DefaultValue isNull="true"/>
+  <Label locale="en"/>
+  <Description locale="en">Vorschlag der Versicherungssumme pro Quadratmeter</Description>
+  <ValueSet abstract="false">
+   <AllValues containsNull="true"/>
+  </ValueSet>
+ </Attribute>
  <Association associationType="aggr" changingOverTime="false" maxCardinality="1" minCardinality="1" modifier="published" relevant="true" since="0.0.1" target="hausrat.HausratGrunddeckungstyp" targetRoleSingular="HausratGrunddeckungstyp">
   <Label locale="en"/>
   <Description locale="en"/>
