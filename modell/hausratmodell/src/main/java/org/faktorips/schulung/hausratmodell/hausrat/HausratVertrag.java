@@ -1,50 +1,51 @@
 package org.faktorips.schulung.hausratmodell.hausrat;
 
-import org.faktorips.runtime.model.annotation.IpsPolicyCmptType;
-import org.faktorips.runtime.model.annotation.IpsAttributes;
-import org.faktorips.runtime.model.annotation.IpsAssociations;
-import org.faktorips.runtime.model.annotation.IpsConfiguredBy;
-import org.faktorips.runtime.model.annotation.IpsDocumented;
-import org.faktorips.runtime.internal.AbstractModelObject;
-import org.faktorips.runtime.IDeltaSupport;
-import org.faktorips.runtime.ICopySupport;
-import org.faktorips.runtime.IVisitorSupport;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.faktorips.runtime.IConfigurableModelObject;
-import org.faktorips.valueset.OrderedValueSet;
-import org.faktorips.runtime.model.annotation.IpsDefaultValue;
-import org.faktorips.runtime.model.annotation.IpsAllowedValues;
-import org.faktorips.valueset.ValueSet;
-import org.faktorips.valueset.StringLengthValueSet;
-import org.faktorips.valueset.UnrestrictedValueSet;
-import org.faktorips.valueset.IntegerRange;
-import org.faktorips.values.Money;
-import org.faktorips.valueset.MoneyRange;
+import org.faktorips.runtime.ICopySupport;
+import org.faktorips.runtime.IDeltaComputationOptions;
+import org.faktorips.runtime.IDeltaSupport;
+import org.faktorips.runtime.IModelObject;
+import org.faktorips.runtime.IModelObjectDelta;
+import org.faktorips.runtime.IModelObjectVisitor;
+import org.faktorips.runtime.IObjectReferenceStore;
+import org.faktorips.runtime.IProductComponent;
+import org.faktorips.runtime.IRuntimeRepository;
+import org.faktorips.runtime.IValidationContext;
+import org.faktorips.runtime.IVisitorSupport;
+import org.faktorips.runtime.MessageList;
+import org.faktorips.runtime.annotation.IpsGenerated;
+import org.faktorips.runtime.internal.AbstractModelObject;
+import org.faktorips.runtime.internal.IpsStringUtils;
+import org.faktorips.runtime.internal.ModelObjectDelta;
 import org.faktorips.runtime.internal.ProductConfiguration;
+import org.faktorips.runtime.internal.XmlCallback;
+import org.faktorips.runtime.model.annotation.IpsAllowedValues;
+import org.faktorips.runtime.model.annotation.IpsAssociation;
+import org.faktorips.runtime.model.annotation.IpsAssociationAdder;
+import org.faktorips.runtime.model.annotation.IpsAssociations;
 import org.faktorips.runtime.model.annotation.IpsAttribute;
+import org.faktorips.runtime.model.annotation.IpsAttributeSetter;
+import org.faktorips.runtime.model.annotation.IpsAttributes;
+import org.faktorips.runtime.model.annotation.IpsConfiguredBy;
+import org.faktorips.runtime.model.annotation.IpsDefaultValue;
+import org.faktorips.runtime.model.annotation.IpsDocumented;
+import org.faktorips.runtime.model.annotation.IpsInverseAssociation;
+import org.faktorips.runtime.model.annotation.IpsPolicyCmptType;
+import org.faktorips.runtime.model.type.AssociationKind;
 import org.faktorips.runtime.model.type.AttributeKind;
 import org.faktorips.runtime.model.type.ValueSetKind;
-import org.faktorips.runtime.model.annotation.IpsAttributeSetter;
-import org.faktorips.runtime.model.annotation.IpsAssociation;
-import org.faktorips.runtime.model.type.AssociationKind;
-import org.faktorips.runtime.model.annotation.IpsInverseAssociation;
-import org.faktorips.runtime.model.annotation.IpsAssociationAdder;
-import org.faktorips.runtime.IProductComponent;
-import java.util.Calendar;
+import org.faktorips.values.Money;
+import org.faktorips.valueset.IntegerRange;
+import org.faktorips.valueset.MoneyRange;
+import org.faktorips.valueset.OrderedValueSet;
+import org.faktorips.valueset.StringLengthValueSet;
+import org.faktorips.valueset.UnrestrictedValueSet;
+import org.faktorips.valueset.ValueSet;
 import org.w3c.dom.Element;
-import org.faktorips.runtime.IModelObjectDelta;
-import org.faktorips.runtime.IModelObject;
-import org.faktorips.runtime.IDeltaComputationOptions;
-import org.faktorips.runtime.internal.ModelObjectDelta;
-import java.util.Map;
-import org.faktorips.runtime.IRuntimeRepository;
-import org.faktorips.runtime.IObjectReferenceStore;
-import org.faktorips.runtime.internal.XmlCallback;
-import org.faktorips.runtime.internal.IpsStringUtils;
-import java.util.HashMap;
-import org.faktorips.runtime.IModelObjectVisitor;
-import org.faktorips.runtime.MessageList;
-import org.faktorips.runtime.IValidationContext;
-import org.faktorips.runtime.annotation.IpsGenerated;
 
 /**
  * Implementierung von HausratVertrag.
@@ -60,7 +61,7 @@ import org.faktorips.runtime.annotation.IpsGenerated;
 @IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
 public class HausratVertrag extends AbstractModelObject
 		implements IDeltaSupport, ICopySupport, IVisitorSupport, IConfigurableModelObject {
-
+	
 	/**
 	 * Die maximale Multiplizitaet der Beziehung mit dem Rollennamen
 	 * HausratGrunddeckung.

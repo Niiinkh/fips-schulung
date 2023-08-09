@@ -2,6 +2,9 @@
 <ProductCmpt productCmptType="hausrat.HausratProdukt" runtimeId="hausrat.HR-Optimal 2023-01" validFrom="2023-01-01" xml:space="preserve">
  <validTo isNull="true"/>
  <Description locale="de"/>
+ <AttributeValue attribute="kurzbezeichnung" templateValueStatus="defined">
+  <Value isNull="false" valueType="SingleValue">HR-O</Value>
+ </AttributeValue>
  <AttributeValue attribute="produktname" templateValueStatus="defined">
   <Value isNull="false" valueType="SingleValue">Hausrat Optimal</Value>
  </AttributeValue>

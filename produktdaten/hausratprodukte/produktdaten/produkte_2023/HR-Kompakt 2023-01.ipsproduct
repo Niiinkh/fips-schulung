@@ -3,6 +3,9 @@
  <validTo isNull="true"/>
  <Description locale="de"/>
  <Generation validFrom="2023-01-01"/>
+ <AttributeValue attribute="kurzbezeichnung" templateValueStatus="defined">
+  <Value isNull="false" valueType="SingleValue">HR-K</Value>
+ </AttributeValue>
  <AttributeValue attribute="produktname" templateValueStatus="defined">
   <Value isNull="false" valueType="SingleValue">Hausrat Kompakt</Value>
  </AttributeValue>
