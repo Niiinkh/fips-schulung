@@ -25,6 +25,7 @@ import org.faktorips.runtime.annotation.IpsGenerated;
 @IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
 public class Tarifzonentabelle extends Table<TarifzonentabelleRow> {
 
+	public static final String DEFAULT_TARIFZONE = "I";
 	/**
 	 * Membervariable die Keys auf Tabellenzeilen abbildet.
 	 *
@@ -139,8 +140,9 @@ public class Tarifzonentabelle extends Table<TarifzonentabelleRow> {
 	 * Durchsucht den Inhalt dieser Tabelle nach einem Eintrag entsprechend der
 	 * Suchkriterien und gibt diesen zurueck. Null wird zurueckgegeben falls kein
 	 * Eintrag gefunden wird.
-	 * 
+	 *
 	 * @since 0.0.1
+	 *
 	 * @generated
 	 */
 	@IpsGenerated
@@ -152,8 +154,9 @@ public class Tarifzonentabelle extends Table<TarifzonentabelleRow> {
 	 * Durchsucht den Inhalt dieser Tabelle nach einem Eintrag entsprechend der
 	 * Suchkriterien und gibt diesen zurück. Eine 'Null-Row' wird zurueckgegeben,
 	 * falls kein Eintrag gefunden wird.
-	 * 
+	 *
 	 * @since 0.0.1
+	 *
 	 * @generated
 	 */
 	@IpsGenerated
@@ -165,10 +168,12 @@ public class Tarifzonentabelle extends Table<TarifzonentabelleRow> {
 	 * Durchsucht den Inhalt dieser Tabelle nach einem Eintrag entsprechend der
 	 * Suchkriterien und gibt diesen zurück. Eine Exception wird geworfen, falls
 	 * kein Eintrag gefunden wird.
-	 * 
+	 *
 	 * @return Gibt die gesuchte Zeile zurück.
 	 * @throws IllegalArgumentException Wenn keine Zeile gefunden wurde.
+	 *
 	 * @since 0.0.1
+	 *
 	 * @generated
 	 */
 	@IpsGenerated
@@ -179,6 +184,14 @@ public class Tarifzonentabelle extends Table<TarifzonentabelleRow> {
 			throw new IllegalArgumentException("Es wurde keine Zeile in Tabelle " + getName()
 					+ " mit folgenden Suchparametern gefunden:  plzVonBis = " + plzVonBis);
 		}
+	}
+
+	public String getTarifzone(String plz) {
+		TarifzonentabelleRow row = findRow(plz);
+		if (row != null) {
+			return row.getTarifzone();
+		}
+		return DEFAULT_TARIFZONE;
 	}
 
 }

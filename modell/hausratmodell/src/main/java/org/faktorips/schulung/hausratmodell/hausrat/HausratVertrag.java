@@ -399,7 +399,12 @@ public class HausratVertrag extends AbstractModelObject
 	@IpsGenerated
 	public String getTarifzone() {
 		// begin-user-code
-		return "I";
+		HausratProdukt produkt = getHausratProdukt();
+		if (produkt == null) {
+			return Tarifzonentabelle.DEFAULT_TARIFZONE;
+		}
+		Tarifzonentabelle tarifzonentabelle = produkt.getRepository().getTable(Tarifzonentabelle.class);
+		return tarifzonentabelle.getTarifzone(plz);
 		// end-user-code
 	}
 

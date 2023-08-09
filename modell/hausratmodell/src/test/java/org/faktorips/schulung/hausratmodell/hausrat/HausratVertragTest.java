@@ -2,6 +2,8 @@ package org.faktorips.schulung.hausratmodell.hausrat;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Arrays;
+
 import org.faktorips.runtime.InMemoryRuntimeRepository;
 import org.faktorips.values.Money;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,10 +19,34 @@ public class HausratVertragTest {
 		HausratProdukt produkt = new HausratProdukt(runtimeRepository, "id", "kindId", "versionId");
 		produkt.setVorschlagVersSummeProQm(Money.euro(200));
 		vertrag = produkt.createHausratVertrag();
+		Tarifzonentabelle tarifzonentabelle = new Tarifzonentabelle(Arrays.asList(
+				new TarifzonentabelleRow("20025", "40123", "II"), 
+				new TarifzonentabelleRow("40125", "50000", "V")));
+		runtimeRepository.putTable(tarifzonentabelle);
 	}
 
 	@Test
-	void testGetTarifzone_tarifzoneIstImmerEins() {
+	void testTarifzone() {
+		vertrag.setPlz("40125");
+		assertThat(vertrag.getTarifzone()).isEqualTo("V");
+	}
+	
+	@Test
+	void testGetTarifzone_keinePlz() {
+		vertrag.setPlz(null);
+		assertThat(vertrag.getTarifzone()).isEqualTo("I");
+	}
+	
+	@Test
+	void testGetTarifzone_plzNichtInTabelle() {
+		vertrag.setPlz("40124");
+		assertThat(vertrag.getTarifzone()).isEqualTo("I");
+	}
+	
+	@Test
+	void testGetTarifzone_keinProdukt() {
+		HausratVertrag vertrag = new HausratVertrag();
+		vertrag.setPlz("50000");
 		assertThat(vertrag.getTarifzone()).isEqualTo("I");
 	}
 
