@@ -1,5 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PolicyCmptType xmlns="http://www.faktorzehn.org" since="0.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.faktorzehn.org https://doc.faktorzehn.org/schema/faktor-ips/23.6/PolicyCmptType.xsd" xml:space="preserve">
- <Label id="278125b3-a3ee-49a0-a45c-03d32bbeb69a" locale="en"/>
- <Description id="0ec50be9-61a4-4dc2-8785-4edf96879700" locale="en"/>
+ <Label locale="en"/>
+ <Description locale="en"/>
+ <Attribute attributeType="changeable" changingOverTime="true" datatype="Integer" modifier="published" name="zahlweise" since="0.0.1">
+  <DefaultValue isNull="true"/>
+  <Label locale="en"/>
+  <Description locale="en"/>
+  <ValueSet abstract="false">
+   <Enum>
+    <Value>
+     <Data>1</Data>
+    </Value>
+    <Value>
+     <Data>2</Data>
+    </Value>
+    <Value>
+     <Data>4</Data>
+    </Value>
+    <Value>
+     <Data>12</Data>
+    </Value>
+    <Value>
+     <Data isNull="true"/>
+    </Value>
+   </Enum>
+  </ValueSet>
+ </Attribute>
+ <Attribute attributeType="changeable" changingOverTime="true" datatype="String" modifier="published" name="plz" since="0.0.1">
+  <DefaultValue isNull="true"/>
+  <Label locale="en"/>
+  <Description locale="en"/>
+  <ValueSet abstract="false">
+   <StringLength containsNull="false">
+    <MaximumLength>5</MaximumLength>
+   </StringLength>
+  </ValueSet>
+ </Attribute>
+ <Attribute attributeType="derived" changingOverTime="true" datatype="String" modifier="published" name="tarifzone" since="0.0.1">
+  <DefaultValue isNull="true"/>
+  <Label locale="en"/>
+  <Description locale="en"/>
+  <ValueSet abstract="false">
+   <AllValues containsNull="true"/>
+  </ValueSet>
+ </Attribute>
+ <Attribute attributeType="changeable" changingOverTime="true" datatype="Integer" modifier="published" name="wohnflaeche" since="0.0.1">
+  <DefaultValue isNull="true"/>
+  <Label locale="en"/>
+  <Description locale="en"/>
+  <ValueSet abstract="false">
+   <Range containsNull="false">
+    <LowerBound>0</LowerBound>
+    <UpperBound isNull="true"/>
+    <Step isNull="true"/>
+   </Range>
+  </ValueSet>
+ </Attribute>
+ <Attribute attributeType="derived" changingOverTime="true" datatype="Money" modifier="published" name="vorschlagVersSumme" since="0.0.1">
+  <DefaultValue isNull="true"/>
+  <Label locale="en"/>
+  <Description locale="en"/>
+  <ValueSet abstract="false">
+   <AllValues containsNull="true"/>
+  </ValueSet>
+ </Attribute>
+ <Attribute attributeType="changeable" changingOverTime="true" datatype="Money" modifier="published" name="versSumme" since="0.0.1">
+  <DefaultValue isNull="true"/>
+  <Label locale="en"/>
+  <Description locale="en"/>
+  <ValueSet abstract="false">
+   <Range containsNull="false">
+    <LowerBound>0.00 EUR</LowerBound>
+    <UpperBound isNull="true"/>
+    <Step isNull="true"/>
+   </Range>
+  </ValueSet>
+ </Attribute>
 </PolicyCmptType>
