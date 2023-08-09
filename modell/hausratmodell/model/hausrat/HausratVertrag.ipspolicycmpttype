@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PolicyCmptType xmlns="http://www.faktorzehn.org" since="0.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.faktorzehn.org https://doc.faktorzehn.org/schema/faktor-ips/23.6/PolicyCmptType.xsd" xml:space="preserve">
+ <Label id="278125b3-a3ee-49a0-a45c-03d32bbeb69a" locale="en"/>
+ <Description id="0ec50be9-61a4-4dc2-8785-4edf96879700" locale="en"/>
+</PolicyCmptType>
