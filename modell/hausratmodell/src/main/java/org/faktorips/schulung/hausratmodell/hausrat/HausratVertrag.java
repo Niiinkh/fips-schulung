@@ -334,7 +334,7 @@ public class HausratVertrag extends AbstractModelObject implements IDeltaSupport
 	@IpsGenerated
 	public String getTarifzone() {
 		// begin-user-code
-		return null;
+		return "I";
 		// end-user-code
 	}
 
@@ -401,14 +401,18 @@ public class HausratVertrag extends AbstractModelObject implements IDeltaSupport
 	@IpsGenerated
 	public Money getVorschlagVersSumme() {
 		// begin-user-code
-		return Money.NULL;
+		if (wohnflaeche == null) {
+			return Money.NULL;
+		}
+		return Money.euro(wohnflaeche * 650);
 		// end-user-code
 	}
 
 	/**
 	 * Gibt den erlaubten Wertebereich fuer das Attribut versSumme zurueck.
-	 * 
+	 *
 	 * @since 0.0.1
+	 *
 	 * @generated
 	 */
 	@IpsAllowedValues("versSumme")
@@ -419,8 +423,9 @@ public class HausratVertrag extends AbstractModelObject implements IDeltaSupport
 
 	/**
 	 * Gibt den Wert des Attributs versSumme zurueck.
-	 * 
+	 *
 	 * @since 0.0.1
+	 *
 	 * @generated
 	 */
 	@IpsAttribute(name = "versSumme", kind = AttributeKind.CHANGEABLE, valueSetKind = ValueSetKind.Range)
@@ -431,8 +436,9 @@ public class HausratVertrag extends AbstractModelObject implements IDeltaSupport
 
 	/**
 	 * Setzt den Wert des Attributs versSumme.
-	 * 
+	 *
 	 * @since 0.0.1
+	 *
 	 * @generated
 	 */
 	@IpsAttributeSetter("versSumme")
