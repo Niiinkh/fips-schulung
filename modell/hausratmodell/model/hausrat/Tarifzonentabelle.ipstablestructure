@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TableStructure xmlns="http://www.faktorzehn.org" since="0.0.1" tableStructureType="singleContent" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.faktorzehn.org https://doc.faktorzehn.org/schema/faktor-ips/23.6/TableStructure.xsd" xml:space="preserve">
+ <Label locale="en"/>
+ <Description locale="en"/>
+ <Column datatype="String" name="plzVon" since="0.0.1">
+  <Label locale="en"/>
+  <Description locale="en"/>
+ </Column>
+ <Column datatype="String" name="plzBis" since="0.0.1">
+  <Label locale="en"/>
+  <Description locale="en"/>
+ </Column>
+ <Column datatype="String" name="Tarifzone" since="0.0.1">
+  <Label locale="en"/>
+  <Description locale="en"/>
+ </Column>
+ <Range columnRangeType="twoColumn" fromColumn="plzVon" parameterName="plzVonBis" since="0.0.1" toColumn="plzBis">
+  <Description locale="en"/>
+ </Range>
+ <Index since="0.0.1" uniqueKey="true">
+  <Item name="plzVon-plzBis"/>
+  <Description locale="en"/>
+ </Index>
+</TableStructure>

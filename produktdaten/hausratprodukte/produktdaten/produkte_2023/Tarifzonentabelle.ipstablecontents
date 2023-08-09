@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TableContents xmlns="http://www.faktorzehn.org" numOfColumns="3" tableStructure="hausrat.Tarifzonentabelle" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.faktorzehn.org https://doc.faktorzehn.org/schema/faktor-ips/23.6/TableContents.xsd" xml:space="preserve">
+ <Description locale="de"/>
+ <ColumnTableReference name="plzVon"/>
+ <ColumnTableReference name="plzBis"/>
+ <ColumnTableReference name="Tarifzone"/>
+ <Rows>
+  <Row>
+   <Value>17235</Value>
+   <Value>17237</Value>
+   <Value>II</Value>
+  </Row>
+  <Row>
+   <Value>45525</Value>
+   <Value>45549</Value>
+   <Value>III</Value>
+  </Row>
+  <Row>
+   <Value>59174</Value>
+   <Value>59199</Value>
+   <Value>IV</Value>
+  </Row>
+  <Row>
+   <Value>47051</Value>
+   <Value>47279</Value>
+   <Value>V</Value>
+  </Row>
+  <Row>
+   <Value>63065</Value>
+   <Value>63075</Value>
+   <Value>VI</Value>
+  </Row>
+ </Rows>
+</TableContents>
