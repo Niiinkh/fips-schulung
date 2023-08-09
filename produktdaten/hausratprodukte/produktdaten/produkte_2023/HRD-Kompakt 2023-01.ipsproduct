@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductCmpt xmlns="http://www.faktorzehn.org" productCmptType="hausrat.HausratGrunddeckungstyp" runtimeId="hausrat.HRD-Kompakt 2023-01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.faktorzehn.org https://doc.faktorzehn.org/schema/faktor-ips/23.6/ProductCmpt.xsd" xml:space="preserve">
+ <validTo isNull="true"/>
+ <Description locale="de"/>
+ <Generation validFrom="2023-01-01"/>
+</ProductCmpt>

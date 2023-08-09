@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <FaktorIps-TableOfContents productDataVersion="0.0.1" xmlversion="3.0">
  <PolicyCmptType implementationClass="org.faktorips.schulung.hausratmodell.hausrat.HausratGrunddeckung" ipsObjectId="hausrat.HausratGrunddeckung" ipsObjectQualifiedName="hausrat.HausratGrunddeckung"/>
+ <ProductCmptType implementationClass="org.faktorips.schulung.hausratmodell.hausrat.HausratGrunddeckungstyp" ipsObjectId="hausrat.HausratGrunddeckungstyp" ipsObjectQualifiedName="hausrat.HausratGrunddeckungstyp"/>
  <ProductCmptType implementationClass="org.faktorips.schulung.hausratmodell.hausrat.HausratProdukt" ipsObjectId="hausrat.HausratProdukt" ipsObjectQualifiedName="hausrat.HausratProdukt"/>
  <PolicyCmptType implementationClass="org.faktorips.schulung.hausratmodell.hausrat.HausratVertrag" ipsObjectId="hausrat.HausratVertrag" ipsObjectQualifiedName="hausrat.HausratVertrag"/>
 </FaktorIps-TableOfContents>

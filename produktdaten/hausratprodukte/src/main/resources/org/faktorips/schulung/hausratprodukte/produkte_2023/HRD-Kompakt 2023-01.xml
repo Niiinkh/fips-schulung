@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductCmpt productCmptType="hausrat.HausratGrunddeckungstyp" runtimeId="hausrat.HRD-Kompakt 2023-01" validFrom="2023-01-01" xml:space="preserve">
+ <validTo isNull="true"/>
+ <Description locale="de"/>
+</ProductCmpt>

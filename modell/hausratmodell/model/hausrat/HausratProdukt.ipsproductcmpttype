@@ -18,6 +18,10 @@
    <AllValues containsNull="true"/>
   </ValueSet>
  </Attribute>
+ <Association associationType="aggr" changingOverTime="false" maxCardinality="1" minCardinality="1" modifier="published" relevant="true" since="0.0.1" target="hausrat.HausratGrunddeckungstyp" targetRoleSingular="HausratGrunddeckungstyp">
+  <Label locale="en"/>
+  <Description locale="en"/>
+ </Association>
  <Category defaultForProductCmptTypeAttributes="true" name="Eigenschaften" position="left">
   <Label locale="en"/>
   <Description locale="en"/>

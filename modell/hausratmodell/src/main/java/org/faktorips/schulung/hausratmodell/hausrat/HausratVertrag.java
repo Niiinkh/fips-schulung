@@ -36,6 +36,7 @@ import org.faktorips.runtime.model.annotation.IpsDocumented;
 import org.faktorips.runtime.model.annotation.IpsInverseAssociation;
 import org.faktorips.runtime.model.annotation.IpsPolicyCmptType;
 import org.faktorips.runtime.model.type.AssociationKind;
+import org.faktorips.runtime.model.annotation.IpsMatchingAssociation;
 import org.faktorips.runtime.model.type.AttributeKind;
 import org.faktorips.runtime.model.type.ValueSetKind;
 import org.faktorips.values.Money;
@@ -61,7 +62,7 @@ import org.w3c.dom.Element;
 @IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
 public class HausratVertrag extends AbstractModelObject
 		implements IDeltaSupport, ICopySupport, IVisitorSupport, IConfigurableModelObject {
-	
+
 	/**
 	 * Die maximale Multiplizitaet der Beziehung mit dem Rollennamen
 	 * HausratGrunddeckung.
@@ -517,6 +518,7 @@ public class HausratVertrag extends AbstractModelObject
 	 * @generated
 	 */
 	@IpsAssociation(name = "HausratGrunddeckung", pluralName = "", kind = AssociationKind.Composition, targetClass = HausratGrunddeckung.class, min = 1, max = 1)
+	@IpsMatchingAssociation(source = HausratProdukt.class, name = "HausratGrunddeckungstyp")
 	@IpsInverseAssociation("HausratVertrag")
 	@IpsGenerated
 	public HausratGrunddeckung getHausratGrunddeckung() {
@@ -556,6 +558,28 @@ public class HausratVertrag extends AbstractModelObject
 	@IpsGenerated
 	public HausratGrunddeckung newHausratGrunddeckung() {
 		HausratGrunddeckung newHausratGrunddeckung = new HausratGrunddeckung();
+		setHausratGrunddeckung(newHausratGrunddeckung);
+		newHausratGrunddeckung.initialize();
+		return newHausratGrunddeckung;
+	}
+
+	/**
+	 * Erzeugt ein neues HausratGrunddeckung-Objekt und fuegt es zu diesem Objekt in
+	 * der Rolle HausratGrunddeckung hinzu.
+	 *
+	 * @param hausratGrunddeckungstyp Der Produktbaustein, auf dem das neue Objekt
+	 *                                basiert.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsGenerated
+	public HausratGrunddeckung newHausratGrunddeckung(HausratGrunddeckungstyp hausratGrunddeckungstyp) {
+		if (hausratGrunddeckungstyp == null) {
+			return newHausratGrunddeckung();
+		}
+		HausratGrunddeckung newHausratGrunddeckung = hausratGrunddeckungstyp.createHausratGrunddeckung();
 		setHausratGrunddeckung(newHausratGrunddeckung);
 		newHausratGrunddeckung.initialize();
 		return newHausratGrunddeckung;
@@ -645,6 +669,9 @@ public class HausratVertrag extends AbstractModelObject
 	public void effectiveFromHasChanged() {
 		if (getEffectiveFromAsCalendar() != null) {
 			resetProductCmptGenerationAfterEffectiveFromHasChanged();
+		}
+		if (hausratGrunddeckung != null) {
+			hausratGrunddeckung.effectiveFromHasChanged();
 		}
 	}
 
