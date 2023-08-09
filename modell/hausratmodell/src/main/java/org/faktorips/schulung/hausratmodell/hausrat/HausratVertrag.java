@@ -467,10 +467,7 @@ public class HausratVertrag extends AbstractModelObject
 	@IpsGenerated
 	public Money getVorschlagVersSumme() {
 		// begin-user-code
-		if (wohnflaeche == null) {
-			return Money.NULL;
-		}
-		return Money.euro(wohnflaeche * 650);
+		return getHausratProdukt().getVorschlagVersSummeProQm().multiply(wohnflaeche);
 		// end-user-code
 	}
 

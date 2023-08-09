@@ -291,8 +291,9 @@ public class HausratProdukt extends ProductComponent {
 	 * Gibt den Wert der Eigenschaft vorschlagVersSummeProQm zurück.
 	 * <p>
 	 * Vorschlag der Versicherungssumme pro Quadratmeter
-	 * 
+	 *
 	 * @since 0.0.1
+	 *
 	 * @generated
 	 */
 	@IpsAttribute(name = "vorschlagVersSummeProQm", kind = AttributeKind.CONSTANT, valueSetKind = ValueSetKind.AllValues)
@@ -305,8 +306,9 @@ public class HausratProdukt extends ProductComponent {
 	 * Setzt den Wert der Eigenschaft vorschlagVersSummeProQm.
 	 * <p>
 	 * Vorschlag der Versicherungssumme pro Quadratmeter
-	 * 
+	 *
 	 * @since 0.0.1
+	 *
 	 * @generated
 	 */
 	@IpsAttributeSetter("vorschlagVersSummeProQm")
@@ -322,8 +324,9 @@ public class HausratProdukt extends ProductComponent {
 	 * Setzt den Wert der Eigenschaft vorschlagVersSummeProQm.
 	 * <p>
 	 * Vorschlag der Versicherungssumme pro Quadratmeter
-	 * 
+	 *
 	 * @since 0.0.1
+	 *
 	 * @generated
 	 */
 	@IpsGenerated
