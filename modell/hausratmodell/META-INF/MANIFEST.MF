@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Fips-BasePackage: org.faktorips.schulung.hausratmodell
+Fips-SourcecodeOutput: src/main/java
+Fips-ResourceOutput: src/main/resources
+Fips-ObjectDir: model;toc="faktorips-repository-toc.xml";validation-messages="message-validation"
