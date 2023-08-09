@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <FaktorIps-TableOfContents productDataVersion="0.0.1" xmlversion="3.0">
+ <PolicyCmptType implementationClass="org.faktorips.schulung.hausratmodell.hausrat.HausratGrunddeckung" ipsObjectId="hausrat.HausratGrunddeckung" ipsObjectQualifiedName="hausrat.HausratGrunddeckung"/>
  <PolicyCmptType implementationClass="org.faktorips.schulung.hausratmodell.hausrat.HausratVertrag" ipsObjectId="hausrat.HausratVertrag" ipsObjectQualifiedName="hausrat.HausratVertrag"/>
 </FaktorIps-TableOfContents>

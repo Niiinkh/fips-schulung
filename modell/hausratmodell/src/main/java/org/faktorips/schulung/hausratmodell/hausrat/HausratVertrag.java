@@ -2,6 +2,7 @@ package org.faktorips.schulung.hausratmodell.hausrat;
 
 import org.faktorips.runtime.model.annotation.IpsPolicyCmptType;
 import org.faktorips.runtime.model.annotation.IpsAttributes;
+import org.faktorips.runtime.model.annotation.IpsAssociations;
 import org.faktorips.runtime.model.annotation.IpsDocumented;
 import org.faktorips.runtime.internal.AbstractModelObject;
 import org.faktorips.runtime.IDeltaSupport;
@@ -20,6 +21,10 @@ import org.faktorips.runtime.model.annotation.IpsAttribute;
 import org.faktorips.runtime.model.type.AttributeKind;
 import org.faktorips.runtime.model.type.ValueSetKind;
 import org.faktorips.runtime.model.annotation.IpsAttributeSetter;
+import org.faktorips.runtime.model.annotation.IpsAssociation;
+import org.faktorips.runtime.model.type.AssociationKind;
+import org.faktorips.runtime.model.annotation.IpsInverseAssociation;
+import org.faktorips.runtime.model.annotation.IpsAssociationAdder;
 import org.w3c.dom.Element;
 import org.faktorips.runtime.IModelObjectDelta;
 import org.faktorips.runtime.IModelObject;
@@ -43,9 +48,27 @@ import org.faktorips.runtime.annotation.IpsGenerated;
  */
 @IpsPolicyCmptType(name = "hausrat.HausratVertrag")
 @IpsAttributes({ "zahlweise", "plz", "tarifzone", "wohnflaeche", "vorschlagVersSumme", "versSumme" })
+@IpsAssociations({ "HausratGrunddeckung" })
 @IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
 public class HausratVertrag extends AbstractModelObject implements IDeltaSupport, ICopySupport, IVisitorSupport {
 
+	/**
+	 * Die maximale Multiplizitaet der Beziehung mit dem Rollennamen
+	 * HausratGrunddeckung.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	public static final IntegerRange MAX_MULTIPLICITY_OF_HAUSRAT_GRUNDDECKUNG = IntegerRange.valueOf(1, 1);
+	/**
+	 * Diese Konstante enthaelt den Namen der Beziehung hausratGrunddeckung.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	public static final String ASSOCIATION_HAUSRAT_GRUNDDECKUNG = "hausratGrunddeckung";
 	/**
 	 * Diese Konstante enthaelt den Namen der Eigenschaft zahlweise.
 	 *
@@ -219,6 +242,15 @@ public class HausratVertrag extends AbstractModelObject implements IDeltaSupport
 	 * @generated
 	 */
 	private Money versSumme = DEFAULT_VALUE_FOR_VERS_SUMME;
+
+	/**
+	 * Membervariable fuer die Beziehung HausratGrunddeckung.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	private HausratGrunddeckung hausratGrunddeckung = null;
 
 	/**
 	 * Erzeugt eine neue Instanz von HausratVertrag.
@@ -448,6 +480,54 @@ public class HausratVertrag extends AbstractModelObject implements IDeltaSupport
 	}
 
 	/**
+	 * Gibt das referenzierte HausratGrunddeckung-Objekt zurueck.
+	 * 
+	 * @since 0.0.1
+	 * @generated
+	 */
+	@IpsAssociation(name = "HausratGrunddeckung", pluralName = "", kind = AssociationKind.Composition, targetClass = HausratGrunddeckung.class, min = 1, max = 1)
+	@IpsInverseAssociation("HausratVertrag")
+	@IpsGenerated
+	public HausratGrunddeckung getHausratGrunddeckung() {
+		return hausratGrunddeckung;
+	}
+
+	/**
+	 * Setzt das uebergebene Objekt in der Beziehung HausratGrunddeckung.
+	 * 
+	 * @throws ClassCastException Wenn die Beziehung eingeschränkt wurde und das
+	 *                            uebergebene Objekt nicht vom passenden Typ ist.
+	 * @since 0.0.1
+	 * @generated
+	 */
+	@IpsAssociationAdder(association = "HausratGrunddeckung")
+	@IpsGenerated
+	public void setHausratGrunddeckung(HausratGrunddeckung newObject) {
+		if (hausratGrunddeckung != null) {
+			hausratGrunddeckung.setHausratVertragInternal(null);
+		}
+		if (newObject != null) {
+			newObject.setHausratVertragInternal(this);
+		}
+		hausratGrunddeckung = newObject;
+	}
+
+	/**
+	 * Erzeugt ein neues HausratGrunddeckung-Objekt und fuegt es zu diesem Objekt in
+	 * der Rolle HausratGrunddeckung hinzu.
+	 * 
+	 * @since 0.0.1
+	 * @generated
+	 */
+	@IpsGenerated
+	public HausratGrunddeckung newHausratGrunddeckung() {
+		HausratGrunddeckung newHausratGrunddeckung = new HausratGrunddeckung();
+		setHausratGrunddeckung(newHausratGrunddeckung);
+		newHausratGrunddeckung.initialize();
+		return newHausratGrunddeckung;
+	}
+
+	/**
 	 * Initialisiert Attribute mit ihren Vorgabewerten.
 	 *
 	 * @restrainedmodifiable
@@ -527,7 +607,29 @@ public class HausratVertrag extends AbstractModelObject implements IDeltaSupport
 		if (newChild != null) {
 			return newChild;
 		}
+		if ("HausratGrunddeckung".equals(childEl.getNodeName())) {
+			return doInitHausratGrunddeckung(childEl);
+		}
 		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	@IpsGenerated
+	private AbstractModelObject doInitHausratGrunddeckung(Element childEl) {
+		String className = childEl.getAttribute("class");
+		if (className.length() > 0) {
+			try {
+				HausratGrunddeckung hausratGrunddeckungLocalVar = (HausratGrunddeckung) Class.forName(className)
+						.getConstructor().newInstance();
+				setHausratGrunddeckung(hausratGrunddeckungLocalVar);
+				return hausratGrunddeckungLocalVar;
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+		}
+		return newHausratGrunddeckung();
 	}
 
 	/**
@@ -548,6 +650,8 @@ public class HausratVertrag extends AbstractModelObject implements IDeltaSupport
 		delta.checkPropertyChange(HausratVertrag.PROPERTY_WOHNFLAECHE, wohnflaeche, otherHausratVertrag.wohnflaeche,
 				options);
 		delta.checkPropertyChange(HausratVertrag.PROPERTY_VERSSUMME, versSumme, otherHausratVertrag.versSumme, options);
+		ModelObjectDelta.createChildDeltas(delta, hausratGrunddeckung, otherHausratVertrag.hausratGrunddeckung,
+				ASSOCIATION_HAUSRAT_GRUNDDECKUNG, options);
 		return delta;
 	}
 
@@ -600,6 +704,10 @@ public class HausratVertrag extends AbstractModelObject implements IDeltaSupport
 		concreteCopy.plz = plz;
 		concreteCopy.wohnflaeche = wohnflaeche;
 		concreteCopy.versSumme = versSumme;
+		if (hausratGrunddeckung != null) {
+			concreteCopy.hausratGrunddeckung = hausratGrunddeckung.newCopyInternal(copyMap);
+			concreteCopy.hausratGrunddeckung.setHausratVertragInternal(concreteCopy);
+		}
 	}
 
 	/**
@@ -616,7 +724,10 @@ public class HausratVertrag extends AbstractModelObject implements IDeltaSupport
 	 */
 	@IpsGenerated
 	public void copyAssociationsInternal(IModelObject abstractCopy, Map<IModelObject, IModelObject> copyMap) {
-		// Keine Implementierung notwendig.
+		if (hausratGrunddeckung != null) {
+			HausratGrunddeckung copyHausratGrunddeckung = (HausratGrunddeckung) copyMap.get(hausratGrunddeckung);
+			hausratGrunddeckung.copyAssociationsInternal(copyHausratGrunddeckung, copyMap);
+		}
 	}
 
 	/**
@@ -629,6 +740,9 @@ public class HausratVertrag extends AbstractModelObject implements IDeltaSupport
 	public boolean accept(IModelObjectVisitor visitor) {
 		if (!visitor.visit(this)) {
 			return false;
+		}
+		if (hausratGrunddeckung != null) {
+			hausratGrunddeckung.accept(visitor);
 		}
 		return true;
 	}
@@ -659,6 +773,9 @@ public class HausratVertrag extends AbstractModelObject implements IDeltaSupport
 	@IpsGenerated
 	public void validateDependants(MessageList ml, IValidationContext context) {
 		super.validateDependants(ml, context);
+		if (hausratGrunddeckung != null) {
+			ml.add(hausratGrunddeckung.validate(context));
+		}
 	}
 
 }

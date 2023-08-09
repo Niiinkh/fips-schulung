@@ -2,6 +2,10 @@
 <PolicyCmptType xmlns="http://www.faktorzehn.org" since="0.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.faktorzehn.org https://doc.faktorzehn.org/schema/faktor-ips/23.6/PolicyCmptType.xsd" xml:space="preserve">
  <Label locale="en"/>
  <Description locale="en"/>
+ <Association associationType="comp" configurable="true" inverseAssociation="HausratVertrag" maxCardinality="1" minCardinality="1" modifier="published" since="0.0.1" target="hausrat.HausratGrunddeckung" targetRoleSingular="HausratGrunddeckung">
+  <Label locale="en"/>
+  <Description locale="en"/>
+ </Association>
  <Attribute attributeType="changeable" changingOverTime="true" datatype="Integer" modifier="published" name="zahlweise" since="0.0.1">
   <DefaultValue isNull="true"/>
   <Label locale="en"/>
