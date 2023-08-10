@@ -4,4 +4,5 @@
  <ProductCmptType implementationClass="org.faktorips.schulung.hausratmodell.hausrat.HausratGrunddeckungstyp" ipsObjectId="hausrat.HausratGrunddeckungstyp" ipsObjectQualifiedName="hausrat.HausratGrunddeckungstyp"/>
  <ProductCmptType implementationClass="org.faktorips.schulung.hausratmodell.hausrat.HausratProdukt" ipsObjectId="hausrat.HausratProdukt" ipsObjectQualifiedName="hausrat.HausratProdukt"/>
  <PolicyCmptType implementationClass="org.faktorips.schulung.hausratmodell.hausrat.HausratVertrag" ipsObjectId="hausrat.HausratVertrag" ipsObjectQualifiedName="hausrat.HausratVertrag"/>
+ <EnumContent implementationClass="org.faktorips.schulung.hausratmodell.hausrat.Zahlweise" ipsObjectId="model.hausrat.Zahlweise" ipsObjectQualifiedName="hausrat.Zahlweise.Type"/>
 </FaktorIps-TableOfContents>
