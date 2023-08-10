@@ -1,6 +1,7 @@
 package org.faktorips.schulung.hausratmodell.hausrat;
 
 import org.faktorips.runtime.model.annotation.IpsPolicyCmptType;
+import org.faktorips.runtime.model.annotation.IpsAttributes;
 import org.faktorips.runtime.model.annotation.IpsAssociations;
 import org.faktorips.runtime.model.annotation.IpsConfiguredBy;
 import org.faktorips.runtime.model.annotation.IpsDocumented;
@@ -10,7 +11,15 @@ import org.faktorips.runtime.ICopySupport;
 import org.faktorips.runtime.IVisitorSupport;
 import org.faktorips.runtime.IDependantObject;
 import org.faktorips.runtime.IConfigurableModelObject;
+import org.faktorips.valueset.ValueSet;
+import org.faktorips.values.Money;
+import org.faktorips.valueset.UnrestrictedValueSet;
+import org.faktorips.runtime.model.annotation.IpsDefaultValue;
 import org.faktorips.runtime.internal.ProductConfiguration;
+import org.faktorips.runtime.model.annotation.IpsAllowedValues;
+import org.faktorips.runtime.model.annotation.IpsAttribute;
+import org.faktorips.runtime.model.type.AttributeKind;
+import org.faktorips.runtime.model.type.ValueSetKind;
 import org.faktorips.runtime.model.annotation.IpsAssociation;
 import org.faktorips.runtime.model.type.AssociationKind;
 import org.faktorips.runtime.model.annotation.IpsInverseAssociation;
@@ -19,6 +28,8 @@ import org.w3c.dom.Element;
 import org.faktorips.runtime.IModelObjectDelta;
 import org.faktorips.runtime.IModelObject;
 import org.faktorips.runtime.IProductComponent;
+
+import java.math.RoundingMode;
 import java.util.Calendar;
 import org.faktorips.runtime.IRuntimeRepository;
 import org.faktorips.runtime.IObjectReferenceStore;
@@ -40,6 +51,7 @@ import org.faktorips.runtime.annotation.IpsGenerated;
  * @generated
  */
 @IpsPolicyCmptType(name = "hausrat.HausratGrunddeckung")
+@IpsAttributes({ "jahresbasisbeitrag" })
 @IpsAssociations({ "HausratVertrag" })
 @IpsConfiguredBy(HausratGrunddeckungstyp.class)
 @IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
@@ -54,6 +66,40 @@ public class HausratGrunddeckung extends AbstractModelObject
 	 * @generated
 	 */
 	public static final String ASSOCIATION_HAUSRAT_VERTRAG = "hausratVertrag";
+	/**
+	 * Diese Konstante enthaelt den Namen der Eigenschaft jahresbasisbeitrag.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	public static final String PROPERTY_JAHRESBASISBEITRAG = "jahresbasisbeitrag";
+	/**
+	 * Gibt die maximal erlaubten Werte fuer die Eigenschaft jahresbasisbeitrag
+	 * zurueck.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	public static final ValueSet<Money> MAX_ALLOWED_VALUES_FOR_JAHRESBASISBEITRAG = new UnrestrictedValueSet<>(true);
+	/**
+	 * Gibt den Vorgabewert des Attributs jahresbasisbeitrag zurück.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsDefaultValue("jahresbasisbeitrag")
+	public static final Money DEFAULT_VALUE_FOR_JAHRESBASISBEITRAG = Money.NULL;
+	/**
+	 * Membervariable fuer jahresbasisbeitrag.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	private Money jahresbasisbeitrag = DEFAULT_VALUE_FOR_JAHRESBASISBEITRAG;
 	/**
 	 * Haelt eine Referenz auf die aktuell eingestellte Produktkonfiguration.
 	 *
@@ -96,6 +142,32 @@ public class HausratGrunddeckung extends AbstractModelObject
 	}
 
 	/**
+	 * Gibt den erlaubten Wertebereich fuer das Attribut jahresbasisbeitrag zurueck.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsAllowedValues("jahresbasisbeitrag")
+	@IpsGenerated
+	public ValueSet<Money> getAllowedValuesForJahresbasisbeitrag() {
+		return MAX_ALLOWED_VALUES_FOR_JAHRESBASISBEITRAG;
+	}
+
+	/**
+	 * Gibt den Wert des Attributs jahresbasisbeitrag zurueck.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsAttribute(name = "jahresbasisbeitrag", kind = AttributeKind.DERIVED_BY_EXPLICIT_METHOD_CALL, valueSetKind = ValueSetKind.AllValues)
+	@IpsGenerated
+	public Money getJahresbasisbeitrag() {
+		return jahresbasisbeitrag;
+	}
+
+	/**
 	 * Gibt das referenzierte HausratVertrag-Objekt zurueck.
 	 *
 	 * @since 0.0.1
@@ -128,6 +200,21 @@ public class HausratGrunddeckung extends AbstractModelObject
 		}
 		this.hausratVertrag = newParent;
 		effectiveFromHasChanged();
+	}
+
+	/**
+	 * @since 0.0.1
+	 * 
+	 * @generated NOT
+	 */
+	public void berechneJahresbasisbeitrag() {
+		jahresbasisbeitrag = Money.NULL;
+		TariftabelleHausratRow tariftabelleRow = getTariftabelle().findRow(hausratVertrag.getTarifzone());
+		if (tariftabelleRow != null) {
+			jahresbasisbeitrag = hausratVertrag.getVersSumme() //
+					.divide(1000, RoundingMode.HALF_UP) //
+					.multiply(tariftabelleRow.getBeitragssatz(), RoundingMode.HALF_UP);
+		}
 	}
 
 	/**
@@ -304,6 +391,28 @@ public class HausratGrunddeckung extends AbstractModelObject
 	 */
 	@Override
 	@IpsGenerated
+	protected void initPropertiesFromXml(Map<String, String> propMap, IRuntimeRepository productRepository) {
+		super.initPropertiesFromXml(propMap, productRepository);
+		doInitJahresbasisbeitrag(propMap);
+	}
+
+	/**
+	 * @generated
+	 */
+	@IpsGenerated
+	private void doInitJahresbasisbeitrag(Map<String, String> propMap) {
+		if (propMap.containsKey(PROPERTY_JAHRESBASISBEITRAG)) {
+			this.jahresbasisbeitrag = Money.valueOf(propMap.get(PROPERTY_JAHRESBASISBEITRAG));
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @generated
+	 */
+	@Override
+	@IpsGenerated
 	protected AbstractModelObject createChildFromXml(Element childEl) {
 		AbstractModelObject newChild = super.createChildFromXml(childEl);
 		if (newChild != null) {
@@ -324,6 +433,9 @@ public class HausratGrunddeckung extends AbstractModelObject
 		if (!HausratGrunddeckung.class.isAssignableFrom(otherObject.getClass())) {
 			return delta;
 		}
+		HausratGrunddeckung otherHausratGrunddeckung = (HausratGrunddeckung) otherObject;
+		delta.checkPropertyChange(HausratGrunddeckung.PROPERTY_JAHRESBASISBEITRAG, jahresbasisbeitrag,
+				otherHausratGrunddeckung.jahresbasisbeitrag, options);
 		return delta;
 	}
 
@@ -382,7 +494,8 @@ public class HausratGrunddeckung extends AbstractModelObject
 	 */
 	@IpsGenerated
 	protected void copyProperties(IModelObject copy, Map<IModelObject, IModelObject> copyMap) {
-		// Keine Implementierung notwendig.
+		HausratGrunddeckung concreteCopy = (HausratGrunddeckung) copy;
+		concreteCopy.jahresbasisbeitrag = jahresbasisbeitrag;
 	}
 
 	/**
