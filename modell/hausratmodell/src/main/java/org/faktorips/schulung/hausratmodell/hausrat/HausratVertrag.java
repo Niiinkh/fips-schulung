@@ -43,7 +43,6 @@ import org.faktorips.runtime.model.annotation.IpsConfiguredAttribute;
 import org.faktorips.values.Money;
 import org.faktorips.valueset.IntegerRange;
 import org.faktorips.valueset.MoneyRange;
-import org.faktorips.valueset.OrderedValueSet;
 import org.faktorips.valueset.StringLengthValueSet;
 import org.faktorips.valueset.UnrestrictedValueSet;
 import org.faktorips.valueset.ValueSet;
@@ -96,8 +95,7 @@ public class HausratVertrag extends AbstractModelObject
 	 *
 	 * @generated
 	 */
-	public static final OrderedValueSet<Integer> MAX_ALLOWED_VALUES_FOR_ZAHLWEISE = new OrderedValueSet<>(false, null,
-			Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(4), Integer.valueOf(12));
+	public static final ValueSet<Zahlweise> MAX_ALLOWED_VALUES_FOR_ZAHLWEISE = new UnrestrictedValueSet<>(false);
 	/**
 	 * Gibt den Vorgabewert des Attributs zahlweise zurück.
 	 *
@@ -106,7 +104,7 @@ public class HausratVertrag extends AbstractModelObject
 	 * @generated
 	 */
 	@IpsDefaultValue("zahlweise")
-	public static final Integer DEFAULT_VALUE_FOR_ZAHLWEISE = null;
+	public static final Zahlweise DEFAULT_VALUE_FOR_ZAHLWEISE = null;
 	/**
 	 * Diese Konstante enthaelt den Namen der Eigenschaft plz.
 	 *
@@ -226,7 +224,7 @@ public class HausratVertrag extends AbstractModelObject
 	 *
 	 * @generated
 	 */
-	private Integer zahlweise = DEFAULT_VALUE_FOR_ZAHLWEISE;
+	private Zahlweise zahlweise = DEFAULT_VALUE_FOR_ZAHLWEISE;
 
 	/**
 	 * Membervariable fuer plz.
@@ -305,7 +303,7 @@ public class HausratVertrag extends AbstractModelObject
 	 */
 	@IpsAllowedValues("zahlweise")
 	@IpsGenerated
-	public ValueSet<Integer> getAllowedValuesForZahlweise() {
+	public ValueSet<Zahlweise> getAllowedValuesForZahlweise() {
 		return getHausratProdukt().getAllowedValuesForZahlweise();
 	}
 
@@ -316,10 +314,10 @@ public class HausratVertrag extends AbstractModelObject
 	 *
 	 * @generated
 	 */
-	@IpsAttribute(name = "zahlweise", kind = AttributeKind.CHANGEABLE, valueSetKind = ValueSetKind.Enum)
+	@IpsAttribute(name = "zahlweise", kind = AttributeKind.CHANGEABLE, valueSetKind = ValueSetKind.AllValues)
 	@IpsConfiguredAttribute(changingOverTime = false)
 	@IpsGenerated
-	public Integer getZahlweise() {
+	public Zahlweise getZahlweise() {
 		return zahlweise;
 	}
 
@@ -332,7 +330,7 @@ public class HausratVertrag extends AbstractModelObject
 	 */
 	@IpsAttributeSetter("zahlweise")
 	@IpsGenerated
-	public void setZahlweise(Integer newValue) {
+	public void setZahlweise(Zahlweise newValue) {
 		this.zahlweise = newValue;
 	}
 
@@ -754,7 +752,7 @@ public class HausratVertrag extends AbstractModelObject
 	private void doInitZahlweise(Map<String, String> propMap) {
 		if (propMap.containsKey(PROPERTY_ZAHLWEISE)) {
 			this.zahlweise = IpsStringUtils.isEmpty(propMap.get(PROPERTY_ZAHLWEISE)) ? null
-					: Integer.valueOf(propMap.get(PROPERTY_ZAHLWEISE));
+					: Zahlweise.getValueById(propMap.get(PROPERTY_ZAHLWEISE));
 		}
 	}
 

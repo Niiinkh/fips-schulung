@@ -33,6 +33,8 @@ import org.w3c.dom.Element;
 import java.util.Map;
 import org.faktorips.runtime.internal.ValueToXmlHelper;
 import org.faktorips.runtime.internal.IpsStringUtils;
+import org.faktorips.valueset.UnrestrictedValueSet;
+import java.util.Arrays;
 import org.faktorips.runtime.internal.EnumValues;
 import java.util.List;
 import org.faktorips.runtime.IProductComponent;
@@ -120,15 +122,15 @@ public class HausratProdukt extends ProductComponent {
 	 *
 	 * @generated
 	 */
-	private Integer defaultValueZahlweise = null;
+	private Zahlweise defaultValueZahlweise = null;
 	/**
-	 * Instanzvariable fuer den Wertebereich des Attributs zahlweise.
+	 * Instanzvariable fuer die erlaubte Wertemenge des Attributs zahlweise.
 	 *
 	 * @since 0.0.1
 	 *
 	 * @generated
 	 */
-	private OrderedValueSet<Integer> allowedValuesForZahlweise = HausratVertrag.MAX_ALLOWED_VALUES_FOR_ZAHLWEISE;
+	private ValueSet<Zahlweise> setOfAllowedValuesZahlweise = HausratVertrag.MAX_ALLOWED_VALUES_FOR_ZAHLWEISE;
 	/**
 	 * Membervariable fuer den Vorgabewert der Vertragseigenschaft wohnflaeche.
 	 *
@@ -343,7 +345,7 @@ public class HausratProdukt extends ProductComponent {
 	 */
 	@IpsDefaultValue("zahlweise")
 	@IpsGenerated
-	public Integer getDefaultValueZahlweise() {
+	public Zahlweise getDefaultValueZahlweise() {
 		return defaultValueZahlweise;
 	}
 
@@ -356,7 +358,7 @@ public class HausratProdukt extends ProductComponent {
 	 */
 	@IpsDefaultValueSetter("zahlweise")
 	@IpsGenerated
-	public void setDefaultValueZahlweise(Integer defaultValueZahlweise) {
+	public void setDefaultValueZahlweise(Zahlweise defaultValueZahlweise) {
 		if (getRepository() != null && !getRepository().isModifiable()) {
 			throw new IllegalRepositoryModificationException();
 		}
@@ -372,8 +374,8 @@ public class HausratProdukt extends ProductComponent {
 	 */
 	@IpsAllowedValues("zahlweise")
 	@IpsGenerated
-	public ValueSet<Integer> getAllowedValuesForZahlweise() {
-		return allowedValuesForZahlweise;
+	public ValueSet<Zahlweise> getAllowedValuesForZahlweise() {
+		return setOfAllowedValuesZahlweise;
 	}
 
 	/**
@@ -388,11 +390,11 @@ public class HausratProdukt extends ProductComponent {
 	 */
 	@IpsAllowedValuesSetter("zahlweise")
 	@IpsGenerated
-	public void setAllowedValuesForZahlweise(ValueSet<Integer> allowedValuesForZahlweise) {
+	public void setAllowedValuesForZahlweise(ValueSet<Zahlweise> setOfAllowedValuesZahlweise) {
 		if (getRepository() != null && !getRepository().isModifiable()) {
 			throw new IllegalRepositoryModificationException();
 		}
-		this.allowedValuesForZahlweise = (OrderedValueSet<Integer>) allowedValuesForZahlweise;
+		this.setOfAllowedValuesZahlweise = setOfAllowedValuesZahlweise;
 	}
 
 	/**
@@ -682,20 +684,24 @@ public class HausratProdukt extends ProductComponent {
 				.get(ValueToXmlHelper.CONFIGURED_DEFAULT_PREFIX + HausratVertrag.PROPERTY_ZAHLWEISE);
 		if (defaultValueElement != null) {
 			String value = ValueToXmlHelper.getValueFromElement(defaultValueElement);
-			defaultValueZahlweise = IpsStringUtils.isEmpty(value) ? null : Integer.valueOf(value);
+			defaultValueZahlweise = IpsStringUtils.isEmpty(value) ? null : Zahlweise.getValueById(value);
 		}
 		Element valueSetElement = configMap
 				.get(ValueToXmlHelper.CONFIGURED_VALUE_SET_PREFIX + HausratVertrag.PROPERTY_ZAHLWEISE);
 		if (valueSetElement != null) {
+			UnrestrictedValueSet<?> unrestrictedValueSet = ValueToXmlHelper.getUnrestrictedValueSet(valueSetElement,
+					ValueToXmlHelper.XML_TAG_VALUE_SET);
+			setOfAllowedValuesZahlweise = new OrderedValueSet<>(Arrays.asList(Zahlweise.values()),
+					unrestrictedValueSet.containsNull(), null);
 			EnumValues values = ValueToXmlHelper.getEnumValueSetFromElement(valueSetElement,
 					ValueToXmlHelper.XML_TAG_VALUE_SET);
 			if (values != null) {
-				List<Integer> enumValues = new ArrayList<>();
+				List<Zahlweise> enumValues = new ArrayList<>();
 				for (int i = 0; i < values.getNumberOfValues(); i++) {
-					enumValues.add(
-							IpsStringUtils.isEmpty(values.getValue(i)) ? null : Integer.valueOf(values.getValue(i)));
+					enumValues.add(IpsStringUtils.isEmpty(values.getValue(i)) ? null
+							: Zahlweise.getValueById(values.getValue(i)));
 				}
-				allowedValuesForZahlweise = new OrderedValueSet<>(enumValues, values.containsNull(), null);
+				setOfAllowedValuesZahlweise = new OrderedValueSet<>(enumValues, values.containsNull(), null);
 			}
 		}
 	}

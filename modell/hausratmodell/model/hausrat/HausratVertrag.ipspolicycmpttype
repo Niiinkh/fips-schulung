@@ -6,25 +6,12 @@
   <Label locale="en"/>
   <Description locale="en"/>
  </Association>
- <Attribute attributeType="changeable" changingOverTime="false" datatype="Integer" modifier="published" name="zahlweise" since="0.0.1" valueSetConfiguredByProduct="true">
+ <Attribute attributeType="changeable" changingOverTime="false" datatype="hausrat.Zahlweise" modifier="published" name="zahlweise" since="0.0.1" valueSetConfiguredByProduct="true">
   <DefaultValue isNull="true"/>
   <Label locale="en"/>
   <Description locale="en"/>
   <ValueSet abstract="false">
-   <Enum>
-    <Value>
-     <Data>1</Data>
-    </Value>
-    <Value>
-     <Data>2</Data>
-    </Value>
-    <Value>
-     <Data>4</Data>
-    </Value>
-    <Value>
-     <Data>12</Data>
-    </Value>
-   </Enum>
+   <AllValues containsNull="false"/>
   </ValueSet>
  </Attribute>
  <Attribute attributeType="changeable" changingOverTime="true" datatype="String" modifier="published" name="plz" since="0.0.1">
