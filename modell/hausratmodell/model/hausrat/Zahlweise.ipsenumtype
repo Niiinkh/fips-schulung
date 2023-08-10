@@ -31,7 +31,7 @@
   <EnumAttributeValue isNull="false">Einmalzahlung</EnumAttributeValue>
   <EnumLiteralNameAttributeValue isNull="false">EINMALZAHLUNG</EnumLiteralNameAttributeValue>
  </EnumValue>
- <EnumAttribute datatype="String" identifier="true" name="id" since="0.0.1" unique="true">
+ <EnumAttribute datatype="int" identifier="true" name="id" since="0.0.1" unique="true">
   <Label locale="en" value="Zahlungen pro Jahr"/>
   <Description locale="en"/>
  </EnumAttribute>

@@ -19,30 +19,30 @@ public enum Zahlweise {
 	/**
 	 * @generated
 	 */
-	MONATLICH("12", "Monatlich"),
+	MONATLICH(12, "Monatlich"),
 	/**
 	 * @generated
 	 */
-	QUARTALSWEISE("4", "Quartalsweise"),
+	QUARTALSWEISE(4, "Quartalsweise"),
 	/**
 	 * @generated
 	 */
-	HALBJAEHRLICH("2", "Halbj\u00E4hrlich"),
+	HALBJAEHRLICH(2, "Halbj\u00E4hrlich"),
 	/**
 	 * @generated
 	 */
-	JAEHRLICH("1", "J\u00E4hrlich"),
+	JAEHRLICH(1, "J\u00E4hrlich"),
 	/**
 	 * @generated
 	 */
-	EINMALZAHLUNG("0", "Einmalzahlung");
+	EINMALZAHLUNG(0, "Einmalzahlung");
 
 	/**
 	 * Eine Map um schnell zu einer ID auf den passenden Enum-Wert zu bekommen.
 	 *
 	 * @generated
 	 */
-	private static final Map<String, Zahlweise> ID_MAP;
+	private static final Map<Integer, Zahlweise> ID_MAP;
 	/**
 	 * In diesem static Block wird die ID-Map mit allen Enum-Werten initialisiert.
 	 *
@@ -60,7 +60,7 @@ public enum Zahlweise {
 	 *
 	 * @generated
 	 */
-	private final String id;
+	private final int id;
 	/**
 	 * @since 0.0.1
 	 *
@@ -74,7 +74,7 @@ public enum Zahlweise {
 	 * @generated
 	 */
 	@IpsGenerated
-	private Zahlweise(String id, String name) {
+	private Zahlweise(int id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -88,7 +88,7 @@ public enum Zahlweise {
 	 * @generated
 	 */
 	@IpsGenerated
-	public static final Zahlweise getValueById(String id) {
+	public static final Zahlweise getValueById(int id) {
 		return ID_MAP.get(id);
 	}
 
@@ -121,7 +121,7 @@ public enum Zahlweise {
 	 * @generated
 	 */
 	@IpsGenerated
-	public static final Zahlweise getExistingValueById(String id) {
+	public static final Zahlweise getExistingValueById(int id) {
 		if (ID_MAP.containsKey(id)) {
 			return ID_MAP.get(id);
 		} else {
@@ -156,7 +156,7 @@ public enum Zahlweise {
 	 * @generated
 	 */
 	@IpsGenerated
-	public static final boolean isValueById(String id) {
+	public static final boolean isValueById(int id) {
 		return getValueById(id) != null;
 	}
 
@@ -180,7 +180,7 @@ public enum Zahlweise {
 	 */
 	@IpsEnumAttribute(name = "id", identifier = true, unique = true)
 	@IpsGenerated
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 

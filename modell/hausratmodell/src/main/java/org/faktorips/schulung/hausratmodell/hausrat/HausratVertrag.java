@@ -752,7 +752,7 @@ public class HausratVertrag extends AbstractModelObject
 	private void doInitZahlweise(Map<String, String> propMap) {
 		if (propMap.containsKey(PROPERTY_ZAHLWEISE)) {
 			this.zahlweise = IpsStringUtils.isEmpty(propMap.get(PROPERTY_ZAHLWEISE)) ? null
-					: Zahlweise.getValueById(propMap.get(PROPERTY_ZAHLWEISE));
+					: Zahlweise.getValueById(Integer.parseInt(propMap.get(PROPERTY_ZAHLWEISE)));
 		}
 	}
 

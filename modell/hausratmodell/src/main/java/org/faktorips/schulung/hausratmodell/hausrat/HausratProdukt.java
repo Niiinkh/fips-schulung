@@ -684,7 +684,8 @@ public class HausratProdukt extends ProductComponent {
 				.get(ValueToXmlHelper.CONFIGURED_DEFAULT_PREFIX + HausratVertrag.PROPERTY_ZAHLWEISE);
 		if (defaultValueElement != null) {
 			String value = ValueToXmlHelper.getValueFromElement(defaultValueElement);
-			defaultValueZahlweise = IpsStringUtils.isEmpty(value) ? null : Zahlweise.getValueById(value);
+			defaultValueZahlweise = IpsStringUtils.isEmpty(value) ? null
+					: Zahlweise.getValueById(Integer.parseInt(value));
 		}
 		Element valueSetElement = configMap
 				.get(ValueToXmlHelper.CONFIGURED_VALUE_SET_PREFIX + HausratVertrag.PROPERTY_ZAHLWEISE);
@@ -699,7 +700,7 @@ public class HausratProdukt extends ProductComponent {
 				List<Zahlweise> enumValues = new ArrayList<>();
 				for (int i = 0; i < values.getNumberOfValues(); i++) {
 					enumValues.add(IpsStringUtils.isEmpty(values.getValue(i)) ? null
-							: Zahlweise.getValueById(values.getValue(i)));
+							: Zahlweise.getValueById(Integer.parseInt(values.getValue(i))));
 				}
 				setOfAllowedValuesZahlweise = new OrderedValueSet<>(enumValues, values.containsNull(), null);
 			}
