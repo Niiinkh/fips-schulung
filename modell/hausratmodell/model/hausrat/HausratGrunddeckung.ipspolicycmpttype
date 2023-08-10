@@ -18,4 +18,12 @@
    <AllValues containsNull="true"/>
   </ValueSet>
  </Attribute>
+ <Attribute attributeType="derived" changingOverTime="false" datatype="Money" modifier="published" name="beitragGemaesZahlweise" since="0.0.1">
+  <DefaultValue isNull="true"/>
+  <Label locale="en"/>
+  <Description locale="en"/>
+  <ValueSet abstract="false">
+   <AllValues containsNull="true"/>
+  </ValueSet>
+ </Attribute>
 </PolicyCmptType>

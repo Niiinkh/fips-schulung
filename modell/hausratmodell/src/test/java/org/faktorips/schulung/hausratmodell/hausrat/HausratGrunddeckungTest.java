@@ -73,6 +73,44 @@ public class HausratGrunddeckungTest {
 		assertThat(grunddeckung.getJahresbasisbeitrag()).isEqualTo(Money.euro(35)); // 50.000 / 1000 * 0.7 = 35€
 	}
 
+	@Test
+	void testBeitragGemaessZahlweise_zahlweiseJahrlich() {
+		vertrag.setZahlweise(Zahlweise.JAEHRLICH);
+		vertrag.setVersSumme(Money.euro(50_000));
+		grunddeckung.berechneJahresbasisbeitrag();
+		assertThat(grunddeckung.getBeitragGemaesZahlweise()).isEqualTo(Money.euro(25));
+	}
+
+	@Test
+	void testBeitragGemaessZahlweise_zahlweiseQuartalsweise() {
+		vertrag.setZahlweise(Zahlweise.QUARTALSWEISE);
+		vertrag.setVersSumme(Money.euro(50_000));
+		grunddeckung.berechneJahresbasisbeitrag();
+		assertThat(grunddeckung.getBeitragGemaesZahlweise()).isEqualTo(Money.euro(6, 25));
+	}
+	
+	@Test
+	void testBeitragGemaessZahlweise_zahlweiseEinmalzahlung() {
+		vertrag.setZahlweise(Zahlweise.EINMALZAHLUNG);
+		vertrag.setVersSumme(Money.euro(50_000));
+		grunddeckung.berechneJahresbasisbeitrag();
+		assertThat(grunddeckung.getBeitragGemaesZahlweise()).isEqualTo(Money.NULL);
+	}
+	
+	@Test
+	void testBeitragGemaessZahlweise_ohneZahlweise() {
+		vertrag.setZahlweise(null);
+		vertrag.setVersSumme(Money.euro(50_000));
+		grunddeckung.berechneJahresbasisbeitrag();
+		assertThat(grunddeckung.getBeitragGemaesZahlweise()).isEqualTo(Money.NULL);
+	}
+
+	@Test
+	void testBeitragGemaessZahlweise_ohneJahresbeitrag() {
+		vertrag.setZahlweise(Zahlweise.JAEHRLICH);
+		assertThat(grunddeckung.getBeitragGemaesZahlweise()).isEqualTo(Money.NULL);
+	}
+
 	private class FakeHausratVertrag extends HausratVertrag {
 
 		@Override

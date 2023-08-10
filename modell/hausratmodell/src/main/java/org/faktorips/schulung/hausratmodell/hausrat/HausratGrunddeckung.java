@@ -51,7 +51,7 @@ import org.faktorips.runtime.annotation.IpsGenerated;
  * @generated
  */
 @IpsPolicyCmptType(name = "hausrat.HausratGrunddeckung")
-@IpsAttributes({ "jahresbasisbeitrag" })
+@IpsAttributes({ "jahresbasisbeitrag", "beitragGemaesZahlweise" })
 @IpsAssociations({ "HausratVertrag" })
 @IpsConfiguredBy(HausratGrunddeckungstyp.class)
 @IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
@@ -92,6 +92,24 @@ public class HausratGrunddeckung extends AbstractModelObject
 	 */
 	@IpsDefaultValue("jahresbasisbeitrag")
 	public static final Money DEFAULT_VALUE_FOR_JAHRESBASISBEITRAG = Money.NULL;
+	/**
+	 * Diese Konstante enthaelt den Namen der Eigenschaft beitragGemaesZahlweise.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	public static final String PROPERTY_BEITRAGGEMAESZAHLWEISE = "beitragGemaesZahlweise";
+	/**
+	 * Gibt die maximal erlaubten Werte fuer die Eigenschaft beitragGemaesZahlweise
+	 * zurueck.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	public static final ValueSet<Money> MAX_ALLOWED_VALUES_FOR_BEITRAG_GEMAES_ZAHLWEISE = new UnrestrictedValueSet<>(
+			true);
 	/**
 	 * Membervariable fuer jahresbasisbeitrag.
 	 *
@@ -165,6 +183,42 @@ public class HausratGrunddeckung extends AbstractModelObject
 	@IpsGenerated
 	public Money getJahresbasisbeitrag() {
 		return jahresbasisbeitrag;
+	}
+
+	/**
+	 * Gibt den erlaubten Wertebereich fuer das Attribut beitragGemaesZahlweise
+	 * zurueck.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsAllowedValues("beitragGemaesZahlweise")
+	@IpsGenerated
+	public ValueSet<Money> getAllowedValuesForBeitragGemaesZahlweise() {
+		return MAX_ALLOWED_VALUES_FOR_BEITRAG_GEMAES_ZAHLWEISE;
+	}
+
+	/**
+	 * Gibt den Wert des Attributs beitragGemaesZahlweise zurueck.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @restrainedmodifiable
+	 */
+	@IpsAttribute(name = "beitragGemaesZahlweise", kind = AttributeKind.DERIVED_ON_THE_FLY, valueSetKind = ValueSetKind.AllValues)
+	@IpsGenerated
+	public Money getBeitragGemaesZahlweise() {
+		// begin-user-code
+		Zahlweise zahlweise = hausratVertrag.getZahlweise();
+		if (jahresbasisbeitrag == null || zahlweise == null) {
+			return Money.NULL;
+		}
+		if (zahlweise == Zahlweise.EINMALZAHLUNG) {
+			return Money.NULL;
+		}
+		return jahresbasisbeitrag.divide(zahlweise.getId(), RoundingMode.HALF_DOWN);
+		// end-user-code
 	}
 
 	/**
