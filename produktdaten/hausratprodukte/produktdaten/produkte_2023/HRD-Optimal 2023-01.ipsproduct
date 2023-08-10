@@ -3,4 +3,7 @@
  <validTo isNull="true"/>
  <Description locale="de"/>
  <Generation validFrom="2023-01-01"/>
+ <TableContentUsage structureUsage="tariftabelle" templateValueStatus="defined">
+  <TableContentName>produkte_2023.Tariftabelle-Optimal</TableContentName>
+ </TableContentUsage>
 </ProductCmpt>

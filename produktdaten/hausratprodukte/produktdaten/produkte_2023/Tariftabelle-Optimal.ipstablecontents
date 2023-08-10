@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TableContents xmlns="http://www.faktorzehn.org" numOfColumns="2" tableStructure="hausrat.TariftabelleHausrat" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.faktorzehn.org https://doc.faktorzehn.org/schema/faktor-ips/23.6/TableContents.xsd" xml:space="preserve">
+ <Description locale="de"/>
+ <ColumnTableReference name="Tarifzone"/>
+ <ColumnTableReference name="beitragssatz"/>
+ <Rows>
+  <Row>
+   <Value>I</Value>
+   <Value>0.8</Value>
+  </Row>
+  <Row>
+   <Value>II</Value>
+   <Value>1</Value>
+  </Row>
+  <Row>
+   <Value>III</Value>
+   <Value>1.2</Value>
+  </Row>
+  <Row>
+   <Value>IV</Value>
+   <Value>1.4</Value>
+  </Row>
+  <Row>
+   <Value>V</Value>
+   <Value>1.6</Value>
+  </Row>
+  <Row>
+   <Value>VI</Value>
+   <Value>1.8</Value>
+  </Row>
+ </Rows>
+</TableContents>

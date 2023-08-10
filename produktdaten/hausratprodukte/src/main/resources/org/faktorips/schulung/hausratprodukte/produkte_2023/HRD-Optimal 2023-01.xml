@@ -2,4 +2,7 @@
 <ProductCmpt productCmptType="hausrat.HausratGrunddeckungstyp" runtimeId="hausrat.HRD-Optimal 2023-01" validFrom="2023-01-01" xml:space="preserve">
  <validTo isNull="true"/>
  <Description locale="de"/>
+ <TableContentUsage structureUsage="tariftabelle" templateValueStatus="defined">
+  <TableContentName>produkte_2023.Tariftabelle-Optimal</TableContentName>
+ </TableContentUsage>
 </ProductCmpt>
