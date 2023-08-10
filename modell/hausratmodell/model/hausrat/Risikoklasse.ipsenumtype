@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EnumType xmlns="http://www.faktorzehn.org" enumContentName="Risikoklasse" extensible="true" since="0.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.faktorzehn.org https://doc.faktorzehn.org/schema/faktor-ips/23.6/EnumType.xsd" xml:space="preserve">
+ <Description locale="en"/>
+ <EnumAttribute datatype="String" identifier="true" name="id" since="0.0.1" unique="true">
+  <Label locale="en"/>
+  <Description locale="en"/>
+ </EnumAttribute>
+ <EnumAttribute datatype="String" name="name" since="0.0.1" unique="true" usedAsNameInFaktorIpsUi="true">
+  <Label locale="en"/>
+  <Description locale="en"/>
+ </EnumAttribute>
+ <EnumLiteralNameAttribute datatype="String" defaultValueProviderAttribute="name" name="LITERAL_NAME" since="0.0.1" unique="true">
+  <Label locale="en"/>
+  <Description locale="en"/>
+ </EnumLiteralNameAttribute>
+</EnumType>

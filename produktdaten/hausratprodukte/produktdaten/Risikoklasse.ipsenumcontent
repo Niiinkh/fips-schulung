@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EnumContent xmlns="http://www.faktorzehn.org" enumType="hausrat.Risikoklasse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.faktorzehn.org https://doc.faktorzehn.org/schema/faktor-ips/23.6/EnumContent.xsd" xml:space="preserve">
+ <Description locale="de"/>
+ <EnumValue>
+  <Description locale="de"/>
+  <EnumAttributeValue isNull="false">10</EnumAttributeValue>
+  <EnumAttributeValue isNull="false">Ständig bewohntes Einfamilienhaus</EnumAttributeValue>
+ </EnumValue>
+ <EnumValue>
+  <Description locale="de"/>
+  <EnumAttributeValue isNull="false">20</EnumAttributeValue>
+  <EnumAttributeValue isNull="false">Ständig bewohntes Mehrfamilienhaus</EnumAttributeValue>
+ </EnumValue>
+ <EnumValue>
+  <Description locale="de"/>
+  <EnumAttributeValue isNull="false">30</EnumAttributeValue>
+  <EnumAttributeValue isNull="false">Ständig bewohntes Ferienhaus</EnumAttributeValue>
+ </EnumValue>
+ <EnumValue>
+  <Description locale="de"/>
+  <EnumAttributeValue isNull="false">40</EnumAttributeValue>
+  <EnumAttributeValue isNull="false">Zweitwohnung</EnumAttributeValue>
+ </EnumValue>
+ <EnumAttributeReference name="id"/>
+ <EnumAttributeReference name="name"/>
+</EnumContent>
