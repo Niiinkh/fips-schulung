@@ -213,9 +213,7 @@ public class HausratZusatzdeckung extends AbstractModelObject
 		if (productCmpt == null) {
 			return null;
 		}
-		// TODO Belegung der Berechnungsparameter implementieren
-		HausratZusatzdeckung hausratZusatzdeckung = null;
-		return productCmpt.computeJahresbasisbeitrag(hausratZusatzdeckung);
+		return productCmpt.computeJahresbasisbeitrag(this);
 		// end-user-code
 	}
 
