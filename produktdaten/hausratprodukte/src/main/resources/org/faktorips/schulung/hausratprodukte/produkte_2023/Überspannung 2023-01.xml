@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductCmpt productCmptType="hausrat.HausratZusatzdeckungsTyp" runtimeId="hausrat.Überspannung 2023-01" validFrom="2023-01-01" xml:space="preserve">
+ <validTo isNull="true"/>
+ <Description locale="de"/>
+ <AttributeValue attribute="maximaleVersSumme" templateValueStatus="defined">
+  <Value isNull="true" valueType="SingleValue"/>
+ </AttributeValue>
+ <AttributeValue attribute="versSummenFaktor" templateValueStatus="defined">
+  <Value isNull="false" valueType="SingleValue">0.05</Value>
+ </AttributeValue>
+</ProductCmpt>

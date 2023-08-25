@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductCmptType2 xmlns="http://www.faktorzehn.org" changingOverTime="false" configurationForPolicyCmptType="true" policyCmptType="hausrat.HausratZusatzdeckung" since="0.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.faktorzehn.org https://doc.faktorzehn.org/schema/faktor-ips/23.6/ProductCmptType2.xsd" xml:space="preserve">
+ <Label locale="en"/>
+ <Description locale="en"/>
+ <Attribute changingOverTime="false" datatype="Decimal" modifier="published" name="versSummenFaktor" since="0.0.1" visible="true">
+  <DefaultValue isNull="true"/>
+  <Label locale="en"/>
+  <Description locale="en"/>
+  <ValueSet abstract="false">
+   <AllValues containsNull="true"/>
+  </ValueSet>
+ </Attribute>
+ <Attribute changingOverTime="false" datatype="Money" modifier="published" name="maximaleVersSumme" since="0.0.1" visible="true">
+  <DefaultValue isNull="true"/>
+  <Label locale="en"/>
+  <Description locale="en"/>
+  <ValueSet abstract="false">
+   <AllValues containsNull="true"/>
+  </ValueSet>
+ </Attribute>
+ <Category defaultForProductCmptTypeAttributes="true" name="Eigenschaften" position="left">
+  <Label locale="en"/>
+  <Description locale="en"/>
+ </Category>
+ <Category defaultForFormulaSignatureDefinitions="true" defaultForTableStructureUsages="true" name="Tabellen und Berechnungsvorschriften" position="left">
+  <Label locale="en"/>
+  <Description locale="en"/>
+ </Category>
+ <Category defaultForValidationRules="true" name="Validierungsregeln" position="left">
+  <Label locale="en"/>
+  <Description locale="en"/>
+ </Category>
+ <Category defaultForPolicyCmptTypeAttributes="true" name="Vorbelegungen und Wertebereiche" position="right">
+  <Label locale="en"/>
+  <Description locale="en"/>
+ </Category>
+</ProductCmptType2>

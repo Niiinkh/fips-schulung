@@ -6,6 +6,10 @@
   <Label locale="en"/>
   <Description locale="en"/>
  </Association>
+ <Association associationType="comp" configurable="true" inverseAssociation="HausratVertrag" maxCardinality="*" minCardinality="0" modifier="published" since="0.0.1" target="hausrat.HausratZusatzdeckung" targetRolePlural="HausratZusatzdeckungen" targetRoleSingular="HausratZusatzdeckung">
+  <Label locale="en"/>
+  <Description locale="en"/>
+ </Association>
  <Attribute attributeType="changeable" changingOverTime="false" datatype="hausrat.Zahlweise" modifier="published" name="zahlweise" since="0.0.1" valueSetConfiguredByProduct="true">
   <DefaultValue isNull="true"/>
   <Label locale="en"/>

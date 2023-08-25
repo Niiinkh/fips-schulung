@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductCmpt xmlns="http://www.faktorzehn.org" productCmptType="hausrat.HausratZusatzdeckungsTyp" runtimeId="hausrat.Fahrraddiebstahl 2023-01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.faktorzehn.org https://doc.faktorzehn.org/schema/faktor-ips/23.6/ProductCmpt.xsd" xml:space="preserve">
+ <validTo isNull="true"/>
+ <Description locale="de"/>
+ <Generation validFrom="2023-01-01"/>
+ <AttributeValue attribute="maximaleVersSumme" templateValueStatus="defined">
+  <Value isNull="false" valueType="SingleValue">5000.00 EUR</Value>
+ </AttributeValue>
+ <AttributeValue attribute="versSummenFaktor" templateValueStatus="defined">
+  <Value isNull="false" valueType="SingleValue">0.01</Value>
+ </AttributeValue>
+</ProductCmpt>

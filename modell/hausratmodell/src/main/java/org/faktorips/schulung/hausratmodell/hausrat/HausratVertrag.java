@@ -13,6 +13,7 @@ import org.faktorips.runtime.IModelObjectDelta;
 import org.faktorips.runtime.IModelObjectVisitor;
 import org.faktorips.runtime.IObjectReferenceStore;
 import org.faktorips.runtime.IProductComponent;
+import java.util.Iterator;
 import org.faktorips.runtime.IRuntimeRepository;
 import org.faktorips.runtime.IValidationContext;
 import org.faktorips.runtime.IVisitorSupport;
@@ -22,10 +23,14 @@ import org.faktorips.runtime.internal.AbstractModelObject;
 import org.faktorips.runtime.internal.IpsStringUtils;
 import org.faktorips.runtime.internal.ModelObjectDelta;
 import org.faktorips.runtime.internal.ProductConfiguration;
+import java.util.List;
+import java.util.ArrayList;
 import org.faktorips.runtime.internal.XmlCallback;
 import org.faktorips.runtime.model.annotation.IpsAllowedValues;
 import org.faktorips.runtime.model.annotation.IpsAssociation;
 import org.faktorips.runtime.model.annotation.IpsAssociationAdder;
+import java.util.Collections;
+import org.faktorips.runtime.model.annotation.IpsAssociationRemover;
 import org.faktorips.runtime.model.annotation.IpsAssociations;
 import org.faktorips.runtime.model.annotation.IpsAttribute;
 import org.faktorips.runtime.model.annotation.IpsAttributeSetter;
@@ -57,7 +62,7 @@ import org.w3c.dom.Element;
  */
 @IpsPolicyCmptType(name = "hausrat.HausratVertrag")
 @IpsAttributes({ "zahlweise", "plz", "tarifzone", "wohnflaeche", "vorschlagVersSumme", "versSumme" })
-@IpsAssociations({ "HausratGrunddeckung" })
+@IpsAssociations({ "HausratGrunddeckung", "HausratZusatzdeckung" })
 @IpsConfiguredBy(HausratProdukt.class)
 @IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
 public class HausratVertrag extends AbstractModelObject
@@ -80,6 +85,23 @@ public class HausratVertrag extends AbstractModelObject
 	 * @generated
 	 */
 	public static final String ASSOCIATION_HAUSRAT_GRUNDDECKUNG = "hausratGrunddeckung";
+	/**
+	 * Die maximale Multiplizitaet der Beziehung mit dem Rollennamen
+	 * HausratZusatzdeckung.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	public static final IntegerRange MAX_MULTIPLICITY_OF_HAUSRAT_ZUSATZDECKUNG = IntegerRange.valueOf(0, 2147483647);
+	/**
+	 * Diese Konstante enthaelt den Namen der Beziehung hausratZusatzdeckungen.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	public static final String ASSOCIATION_HAUSRAT_ZUSATZDECKUNGEN = "hausratZusatzdeckungen";
 	/**
 	 * Diese Konstante enthaelt den Namen der Eigenschaft zahlweise.
 	 *
@@ -267,6 +289,15 @@ public class HausratVertrag extends AbstractModelObject
 	 * @generated
 	 */
 	private HausratGrunddeckung hausratGrunddeckung = null;
+
+	/**
+	 * Membervariable fuer die Beziehung HausratZusatzdeckung.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	private List<HausratZusatzdeckung> hausratZusatzdeckungen = new ArrayList<>();
 
 	/**
 	 * Erzeugt eine neue Instanz von HausratVertrag.
@@ -590,6 +621,138 @@ public class HausratVertrag extends AbstractModelObject
 	}
 
 	/**
+	 * Gibt die Anzahl der HausratZusatzdeckungen zurueck.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsGenerated
+	public int getNumOfHausratZusatzdeckungen() {
+		return hausratZusatzdeckungen.size();
+	}
+
+	/**
+	 * Gibt <code>true</code> zurueck, falls das uebergebene Objekt in der Beziehung
+	 * enthalten ist, ansonsten <code>false</code>.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsGenerated
+	public boolean containsHausratZusatzdeckung(HausratZusatzdeckung objectToTest) {
+		return hausratZusatzdeckungen.contains(objectToTest);
+	}
+
+	/**
+	 * Gibt die referenzierten HausratZusatzdeckungen zurueck.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsAssociation(name = "HausratZusatzdeckung", pluralName = "HausratZusatzdeckungen", kind = AssociationKind.Composition, targetClass = HausratZusatzdeckung.class, min = 0, max = Integer.MAX_VALUE)
+	@IpsMatchingAssociation(source = HausratProdukt.class, name = "HausratZusatzdeckungsTyp")
+	@IpsInverseAssociation("HausratVertrag")
+	@IpsGenerated
+	public List<? extends HausratZusatzdeckung> getHausratZusatzdeckungen() {
+		return Collections.unmodifiableList(hausratZusatzdeckungen);
+	}
+
+	/**
+	 * Gibt das Objekt aus der Beziehung HausratZusatzdeckung an der indizierten
+	 * Stelle zurueck.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsGenerated
+	public HausratZusatzdeckung getHausratZusatzdeckung(int index) {
+		return hausratZusatzdeckungen.get(index);
+	}
+
+	/**
+	 * Fuegt das uebergebene Objekt zu der Beziehung HausratZusatzdeckung hinzu.
+	 *
+	 * @throws ClassCastException Wenn die Beziehung eingeschränkt wurde und das
+	 *                            uebergebene Objekt nicht vom passenden Typ ist.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsAssociationAdder(association = "HausratZusatzdeckung")
+	@IpsGenerated
+	public void addHausratZusatzdeckung(HausratZusatzdeckung objectToAdd) {
+		if (objectToAdd == null) {
+			throw new NullPointerException("Can't add null to association HausratZusatzdeckung of " + this);
+		}
+		if (hausratZusatzdeckungen.contains(objectToAdd)) {
+			return;
+		}
+		objectToAdd.setHausratVertragInternal(this);
+		hausratZusatzdeckungen.add(objectToAdd);
+	}
+
+	/**
+	 * Erzeugt ein neues HausratZusatzdeckung-Objekt und fuegt es zu diesem Objekt
+	 * in der Rolle HausratZusatzdeckung hinzu.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsGenerated
+	public HausratZusatzdeckung newHausratZusatzdeckung() {
+		HausratZusatzdeckung newHausratZusatzdeckung = new HausratZusatzdeckung();
+		addHausratZusatzdeckung(newHausratZusatzdeckung);
+		newHausratZusatzdeckung.initialize();
+		return newHausratZusatzdeckung;
+	}
+
+	/**
+	 * Erzeugt ein neues HausratZusatzdeckung-Objekt und fuegt es zu diesem Objekt
+	 * in der Rolle HausratZusatzdeckung hinzu.
+	 *
+	 * @param hausratZusatzdeckungsTyp Der Produktbaustein, auf dem das neue Objekt
+	 *                                 basiert.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsGenerated
+	public HausratZusatzdeckung newHausratZusatzdeckung(HausratZusatzdeckungsTyp hausratZusatzdeckungsTyp) {
+		if (hausratZusatzdeckungsTyp == null) {
+			return newHausratZusatzdeckung();
+		}
+		HausratZusatzdeckung newHausratZusatzdeckung = hausratZusatzdeckungsTyp.createHausratZusatzdeckung();
+		addHausratZusatzdeckung(newHausratZusatzdeckung);
+		newHausratZusatzdeckung.initialize();
+		return newHausratZusatzdeckung;
+	}
+
+	/**
+	 * Entfernt das uebergebene Objekt aus der Beziehung HausratZusatzdeckung.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsAssociationRemover(association = "HausratZusatzdeckung")
+	@IpsGenerated
+	public void removeHausratZusatzdeckung(HausratZusatzdeckung objectToRemove) {
+		if (objectToRemove == null) {
+			return;
+		}
+		if (hausratZusatzdeckungen.remove(objectToRemove)) {
+			objectToRemove.setHausratVertragInternal(null);
+		}
+	}
+
+	/**
 	 * Initialisiert Attribute mit ihren Vorgabewerten.
 	 *
 	 * @restrainedmodifiable
@@ -681,6 +844,10 @@ public class HausratVertrag extends AbstractModelObject
 		}
 		if (hausratGrunddeckung != null) {
 			hausratGrunddeckung.effectiveFromHasChanged();
+		}
+		for (Iterator<HausratZusatzdeckung> it = hausratZusatzdeckungen.iterator(); it.hasNext();) {
+			HausratZusatzdeckung child = it.next();
+			child.effectiveFromHasChanged();
 		}
 	}
 
@@ -802,6 +969,9 @@ public class HausratVertrag extends AbstractModelObject
 		if ("HausratGrunddeckung".equals(childEl.getNodeName())) {
 			return doInitHausratGrunddeckung(childEl);
 		}
+		if ("HausratZusatzdeckung".equals(childEl.getNodeName())) {
+			return doInitHausratZusatzdeckung(childEl);
+		}
 		return null;
 	}
 
@@ -825,6 +995,25 @@ public class HausratVertrag extends AbstractModelObject
 	}
 
 	/**
+	 * @generated
+	 */
+	@IpsGenerated
+	private AbstractModelObject doInitHausratZusatzdeckung(Element childEl) {
+		String className = childEl.getAttribute("class");
+		if (className.length() > 0) {
+			try {
+				HausratZusatzdeckung hausratZusatzdeckungLocalVar = (HausratZusatzdeckung) Class.forName(className)
+						.getConstructor().newInstance();
+				addHausratZusatzdeckung(hausratZusatzdeckungLocalVar);
+				return hausratZusatzdeckungLocalVar;
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+		}
+		return newHausratZusatzdeckung();
+	}
+
+	/**
 	 * {@inheritDoc}
 	 *
 	 * @generated
@@ -844,6 +1033,8 @@ public class HausratVertrag extends AbstractModelObject
 		delta.checkPropertyChange(HausratVertrag.PROPERTY_VERSSUMME, versSumme, otherHausratVertrag.versSumme, options);
 		ModelObjectDelta.createChildDeltas(delta, hausratGrunddeckung, otherHausratVertrag.hausratGrunddeckung,
 				ASSOCIATION_HAUSRAT_GRUNDDECKUNG, options);
+		ModelObjectDelta.createChildDeltas(delta, hausratZusatzdeckungen, otherHausratVertrag.hausratZusatzdeckungen,
+				ASSOCIATION_HAUSRAT_ZUSATZDECKUNGEN, options);
 		return delta;
 	}
 
@@ -911,6 +1102,12 @@ public class HausratVertrag extends AbstractModelObject
 			concreteCopy.hausratGrunddeckung = hausratGrunddeckung.newCopyInternal(copyMap);
 			concreteCopy.hausratGrunddeckung.setHausratVertragInternal(concreteCopy);
 		}
+		for (Iterator<HausratZusatzdeckung> it = hausratZusatzdeckungen.iterator(); it.hasNext();) {
+			HausratZusatzdeckung hausratZusatzdeckung = it.next();
+			HausratZusatzdeckung copyHausratZusatzdeckung = hausratZusatzdeckung.newCopyInternal(copyMap);
+			copyHausratZusatzdeckung.setHausratVertragInternal(concreteCopy);
+			concreteCopy.hausratZusatzdeckungen.add(copyHausratZusatzdeckung);
+		}
 	}
 
 	/**
@@ -931,6 +1128,10 @@ public class HausratVertrag extends AbstractModelObject
 			HausratGrunddeckung copyHausratGrunddeckung = (HausratGrunddeckung) copyMap.get(hausratGrunddeckung);
 			hausratGrunddeckung.copyAssociationsInternal(copyHausratGrunddeckung, copyMap);
 		}
+		for (HausratZusatzdeckung hausratZusatzdeckung : hausratZusatzdeckungen) {
+			HausratZusatzdeckung copyHausratZusatzdeckung = (HausratZusatzdeckung) copyMap.get(hausratZusatzdeckung);
+			hausratZusatzdeckung.copyAssociationsInternal(copyHausratZusatzdeckung, copyMap);
+		}
 	}
 
 	/**
@@ -946,6 +1147,9 @@ public class HausratVertrag extends AbstractModelObject
 		}
 		if (hausratGrunddeckung != null) {
 			hausratGrunddeckung.accept(visitor);
+		}
+		for (HausratZusatzdeckung hausratZusatzdeckung : hausratZusatzdeckungen) {
+			hausratZusatzdeckung.accept(visitor);
 		}
 		return true;
 	}
@@ -978,6 +1182,11 @@ public class HausratVertrag extends AbstractModelObject
 		super.validateDependants(ml, context);
 		if (hausratGrunddeckung != null) {
 			ml.add(hausratGrunddeckung.validate(context));
+		}
+		if (getNumOfHausratZusatzdeckungen() > 0) {
+			for (HausratZusatzdeckung rel : getHausratZusatzdeckungen()) {
+				ml.add(rel.validate(context));
+			}
 		}
 	}
 
