@@ -18,6 +18,11 @@
    <AllValues containsNull="true"/>
   </ValueSet>
  </Attribute>
+ <Method changingOverTime="false" datatype="Money" formulaName="jahresbasisbeitrag" formulaSignatureDefinition="true" mandatory="true" modifier="published" name="computeJahresbasisbeitrag" since="0.0.1">
+  <Parameter datatype="hausrat.HausratZusatzdeckung" name="hausratZusatzdeckung"/>
+  <Label locale="en"/>
+  <Description locale="en"/>
+ </Method>
  <Category defaultForProductCmptTypeAttributes="true" name="Eigenschaften" position="left">
   <Label locale="en"/>
   <Description locale="en"/>

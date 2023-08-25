@@ -8,4 +8,20 @@
  <AttributeValue attribute="versSummenFaktor" templateValueStatus="defined">
   <Value isNull="false" valueType="SingleValue">0.05</Value>
  </AttributeValue>
+ <Formula formulaSignature="jahresbasisbeitrag" templateValueStatus="defined">
+  <Expression>30EUR + hausratZusatzdeckung.versSumme * 0.03</Expression>
+  <Description locale="de"/>
+  <compiledExpression><![CDATA[import org.faktorips.values.Money;
+import org.faktorips.schulung.hausratmodell.hausrat.HausratZusatzdeckung;
+import org.faktorips.values.Decimal;
+import java.math.RoundingMode;
+
+
+public Money computeJahresbasisbeitrag(HausratZusatzdeckung hausratZusatzdeckung)
+{
+return Money.valueOf("30EUR").add(hausratZusatzdeckung.getVersSumme().multiply(Decimal.valueOf("0.03"), RoundingMode.HALF_UP));
+}
+
+]]></compiledExpression>
+ </Formula>
 </ProductCmpt>

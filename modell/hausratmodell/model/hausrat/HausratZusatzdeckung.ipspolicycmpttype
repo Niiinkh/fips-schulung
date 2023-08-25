@@ -14,4 +14,12 @@
    <AllValues containsNull="true"/>
   </ValueSet>
  </Attribute>
+ <Attribute attributeType="derived" changingOverTime="false" computationMethodSignature="computeJahresbasisbeitrag(hausrat.HausratZusatzdeckung)" datatype="Money" modifier="published" name="jahresbasisbeitrag" since="0.0.1" valueSetConfiguredByProduct="true">
+  <DefaultValue isNull="true"/>
+  <Label locale="en"/>
+  <Description locale="en"/>
+  <ValueSet abstract="false">
+   <AllValues containsNull="true"/>
+  </ValueSet>
+ </Attribute>
 </PolicyCmptType>

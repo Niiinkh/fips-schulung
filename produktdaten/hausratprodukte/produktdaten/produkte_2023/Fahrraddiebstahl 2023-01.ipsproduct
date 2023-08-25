@@ -9,4 +9,8 @@
  <AttributeValue attribute="versSummenFaktor" templateValueStatus="defined">
   <Value isNull="false" valueType="SingleValue">0.01</Value>
  </AttributeValue>
+ <Formula formulaSignature="jahresbasisbeitrag" templateValueStatus="defined">
+  <Expression>hausratZusatzdeckung.versSumme * 0.1</Expression>
+  <Description locale="de"/>
+ </Formula>
 </ProductCmpt>

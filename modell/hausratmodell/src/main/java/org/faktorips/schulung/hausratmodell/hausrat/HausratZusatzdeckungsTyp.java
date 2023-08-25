@@ -7,15 +7,27 @@ import org.faktorips.runtime.model.annotation.IpsDocumented;
 import org.faktorips.runtime.internal.ProductComponent;
 import org.faktorips.values.Decimal;
 import org.faktorips.values.Money;
+import org.faktorips.valueset.ValueSet;
 import org.faktorips.runtime.IRuntimeRepository;
 import org.faktorips.runtime.model.annotation.IpsAttribute;
 import org.faktorips.runtime.model.type.AttributeKind;
 import org.faktorips.runtime.model.type.ValueSetKind;
 import org.faktorips.runtime.model.annotation.IpsAttributeSetter;
 import org.faktorips.runtime.IllegalRepositoryModificationException;
+import org.faktorips.runtime.model.annotation.IpsDefaultValue;
+import org.faktorips.runtime.model.annotation.IpsDefaultValueSetter;
+import org.faktorips.runtime.model.annotation.IpsAllowedValues;
+import org.faktorips.runtime.model.annotation.IpsAllowedValuesSetter;
+import org.faktorips.runtime.FormulaExecutionException;
 import org.w3c.dom.Element;
 import java.util.Map;
 import org.faktorips.runtime.internal.ValueToXmlHelper;
+import org.faktorips.runtime.internal.EnumValues;
+import java.util.List;
+import java.util.ArrayList;
+import org.faktorips.valueset.OrderedValueSet;
+import org.faktorips.runtime.internal.Range;
+import org.faktorips.valueset.MoneyRange;
 import org.faktorips.runtime.annotation.IpsGenerated;
 
 /**
@@ -63,6 +75,25 @@ public class HausratZusatzdeckungsTyp extends ProductComponent {
 	 * @generated
 	 */
 	private Money maximaleVersSumme;
+
+	/**
+	 * Membervariable fuer den Vorgabewert der Vertragseigenschaft
+	 * jahresbasisbeitrag.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	private Money defaultValueJahresbasisbeitrag = Money.NULL;
+	/**
+	 * Instanzvariable fuer die erlaubte Wertemenge des Attributs
+	 * jahresbasisbeitrag.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	private ValueSet<Money> setOfAllowedValuesJahresbasisbeitrag = HausratZusatzdeckung.MAX_ALLOWED_VALUES_FOR_JAHRESBASISBEITRAG;
 
 	/**
 	 * Erzeugt eine neue Instanz von HausratZusatzdeckungsTyp.
@@ -170,6 +201,76 @@ public class HausratZusatzdeckungsTyp extends ProductComponent {
 	}
 
 	/**
+	 * Gibt den Defaultwert fuer die Eigenschaft jahresbasisbeitrag zurueck.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsDefaultValue("jahresbasisbeitrag")
+	@IpsGenerated
+	public Money getDefaultValueJahresbasisbeitrag() {
+		return defaultValueJahresbasisbeitrag;
+	}
+
+	/**
+	 * Setzt den Defaultwert fuer die Eigenschaft jahresbasisbeitrag.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsDefaultValueSetter("jahresbasisbeitrag")
+	@IpsGenerated
+	public void setDefaultValueJahresbasisbeitrag(Money defaultValueJahresbasisbeitrag) {
+		if (getRepository() != null && !getRepository().isModifiable()) {
+			throw new IllegalRepositoryModificationException();
+		}
+		this.defaultValueJahresbasisbeitrag = defaultValueJahresbasisbeitrag;
+	}
+
+	/**
+	 * Gibt den erlaubten Wertebereich fuer das Attribut jahresbasisbeitrag zurueck.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsAllowedValues("jahresbasisbeitrag")
+	@IpsGenerated
+	public ValueSet<Money> getAllowedValuesForJahresbasisbeitrag() {
+		return setOfAllowedValuesJahresbasisbeitrag;
+	}
+
+	/**
+	 * Setzt den erlaubten Wertebereich fuer das Attribut jahresbasisbeitrag.
+	 *
+	 * @throws ClassCastException wenn der Typ des Wertebereichs nicht zur
+	 *                            Konfiguration des Attributs passt.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsAllowedValuesSetter("jahresbasisbeitrag")
+	@IpsGenerated
+	public void setAllowedValuesForJahresbasisbeitrag(ValueSet<Money> setOfAllowedValuesJahresbasisbeitrag) {
+		if (getRepository() != null && !getRepository().isModifiable()) {
+			throw new IllegalRepositoryModificationException();
+		}
+		this.setOfAllowedValuesJahresbasisbeitrag = setOfAllowedValuesJahresbasisbeitrag;
+	}
+
+	/**
+	 * @since 0.0.1
+	 * @generated
+	 */
+	@IpsGenerated
+	public Money computeJahresbasisbeitrag(HausratZusatzdeckung hausratZusatzdeckung) throws FormulaExecutionException {
+		return (Money) getFormulaEvaluator().evaluate("computeJahresbasisbeitrag", hausratZusatzdeckung);
+	}
+
+	/**
 	 * {@inheritDoc}
 	 *
 	 * @generated
@@ -180,6 +281,7 @@ public class HausratZusatzdeckungsTyp extends ProductComponent {
 		super.doInitPropertiesFromXml(configMap);
 		doInitVersSummenFaktor(configMap);
 		doInitMaximaleVersSumme(configMap);
+		doInitJahresbasisbeitrag(configMap);
 	}
 
 	/**
@@ -203,6 +305,44 @@ public class HausratZusatzdeckungsTyp extends ProductComponent {
 		if (configElement != null) {
 			String value = ValueToXmlHelper.getValueFromElement(configElement, ValueToXmlHelper.XML_TAG_VALUE);
 			this.maximaleVersSumme = Money.valueOf(value);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	@IpsGenerated
+	private void doInitJahresbasisbeitrag(Map<String, Element> configMap) {
+		Element defaultValueElement = configMap
+				.get(ValueToXmlHelper.CONFIGURED_DEFAULT_PREFIX + HausratZusatzdeckung.PROPERTY_JAHRESBASISBEITRAG);
+		if (defaultValueElement != null) {
+			String value = ValueToXmlHelper.getValueFromElement(defaultValueElement);
+			defaultValueJahresbasisbeitrag = Money.valueOf(value);
+		}
+		Element valueSetElement = configMap
+				.get(ValueToXmlHelper.CONFIGURED_VALUE_SET_PREFIX + HausratZusatzdeckung.PROPERTY_JAHRESBASISBEITRAG);
+		if (valueSetElement != null) {
+			setOfAllowedValuesJahresbasisbeitrag = ValueToXmlHelper.getUnrestrictedValueSet(valueSetElement,
+					ValueToXmlHelper.XML_TAG_VALUE_SET);
+			EnumValues values = ValueToXmlHelper.getEnumValueSetFromElement(valueSetElement,
+					ValueToXmlHelper.XML_TAG_VALUE_SET);
+			if (values != null) {
+				List<Money> enumValues = new ArrayList<>();
+				for (int i = 0; i < values.getNumberOfValues(); i++) {
+					enumValues.add(Money.valueOf(values.getValue(i)));
+				}
+				setOfAllowedValuesJahresbasisbeitrag = new OrderedValueSet<>(enumValues, values.containsNull(),
+						Money.NULL);
+			}
+			Range range = ValueToXmlHelper.getRangeFromElement(valueSetElement, ValueToXmlHelper.XML_TAG_VALUE_SET);
+			if (range != null) {
+				if (range.isEmpty()) {
+					setOfAllowedValuesJahresbasisbeitrag = MoneyRange.empty();
+				} else {
+					setOfAllowedValuesJahresbasisbeitrag = MoneyRange.valueOf(range.getLower(), range.getUpper(),
+							range.getStep(), range.containsNull());
+				}
+			}
 		}
 	}
 

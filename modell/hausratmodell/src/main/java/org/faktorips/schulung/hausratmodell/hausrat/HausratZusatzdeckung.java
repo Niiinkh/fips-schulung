@@ -20,6 +20,7 @@ import org.faktorips.runtime.model.annotation.IpsAllowedValues;
 import org.faktorips.runtime.model.annotation.IpsAttribute;
 import org.faktorips.runtime.model.type.AttributeKind;
 import org.faktorips.runtime.model.type.ValueSetKind;
+import org.faktorips.runtime.model.annotation.IpsConfiguredAttribute;
 import org.faktorips.runtime.model.annotation.IpsAssociation;
 import org.faktorips.runtime.model.type.AssociationKind;
 import org.faktorips.runtime.model.annotation.IpsInverseAssociation;
@@ -51,7 +52,7 @@ import org.faktorips.runtime.annotation.IpsGenerated;
  * @generated
  */
 @IpsPolicyCmptType(name = "hausrat.HausratZusatzdeckung")
-@IpsAttributes({ "versSumme" })
+@IpsAttributes({ "versSumme", "jahresbasisbeitrag" })
 @IpsAssociations({ "HausratVertrag" })
 @IpsConfiguredBy(HausratZusatzdeckungsTyp.class)
 @IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
@@ -82,6 +83,23 @@ public class HausratZusatzdeckung extends AbstractModelObject
 	 * @generated
 	 */
 	public static final ValueSet<Money> MAX_ALLOWED_VALUES_FOR_VERS_SUMME = new UnrestrictedValueSet<>(true);
+	/**
+	 * Diese Konstante enthaelt den Namen der Eigenschaft jahresbasisbeitrag.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	public static final String PROPERTY_JAHRESBASISBEITRAG = "jahresbasisbeitrag";
+	/**
+	 * Gibt die maximal erlaubten Werte fuer die Eigenschaft jahresbasisbeitrag
+	 * zurueck.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	public static final ValueSet<Money> MAX_ALLOWED_VALUES_FOR_JAHRESBASISBEITRAG = new UnrestrictedValueSet<>(true);
 	/**
 	 * Haelt eine Referenz auf die aktuell eingestellte Produktkonfiguration.
 	 *
@@ -126,8 +144,9 @@ public class HausratZusatzdeckung extends AbstractModelObject
 
 	/**
 	 * Gibt den erlaubten Wertebereich fuer das Attribut versSumme zurueck.
-	 * 
+	 *
 	 * @since 0.0.1
+	 *
 	 * @generated
 	 */
 	@IpsAllowedValues("versSumme")
@@ -138,8 +157,9 @@ public class HausratZusatzdeckung extends AbstractModelObject
 
 	/**
 	 * Gibt den Wert des Attributs versSumme zurueck.
-	 * 
+	 *
 	 * @since 0.0.1
+	 *
 	 * @restrainedmodifiable
 	 */
 	@IpsAttribute(name = "versSumme", kind = AttributeKind.DERIVED_ON_THE_FLY, valueSetKind = ValueSetKind.AllValues)
@@ -161,6 +181,41 @@ public class HausratZusatzdeckung extends AbstractModelObject
 			return maxVs;
 		}
 		return vs;
+		// end-user-code
+	}
+
+	/**
+	 * Gibt den erlaubten Wertebereich fuer das Attribut jahresbasisbeitrag zurueck.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @generated
+	 */
+	@IpsAllowedValues("jahresbasisbeitrag")
+	@IpsGenerated
+	public ValueSet<Money> getAllowedValuesForJahresbasisbeitrag() {
+		return getHausratZusatzdeckungsTyp().getAllowedValuesForJahresbasisbeitrag();
+	}
+
+	/**
+	 * Gibt den Wert des Attributs jahresbasisbeitrag zurueck.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @restrainedmodifiable
+	 */
+	@IpsAttribute(name = "jahresbasisbeitrag", kind = AttributeKind.DERIVED_ON_THE_FLY, valueSetKind = ValueSetKind.AllValues)
+	@IpsConfiguredAttribute(changingOverTime = false)
+	@IpsGenerated
+	public Money getJahresbasisbeitrag() {
+		HausratZusatzdeckungsTyp productCmpt = getHausratZusatzdeckungsTyp();
+		// begin-user-code
+		if (productCmpt == null) {
+			return null;
+		}
+		// TODO Belegung der Berechnungsparameter implementieren
+		HausratZusatzdeckung hausratZusatzdeckung = null;
+		return productCmpt.computeJahresbasisbeitrag(hausratZusatzdeckung);
 		// end-user-code
 	}
 
