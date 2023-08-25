@@ -6,7 +6,7 @@
   <Label locale="en"/>
   <Description locale="en"/>
  </Association>
- <Attribute attributeType="derived" changingOverTime="false" datatype="Money" modifier="published" name="versSummer" since="0.0.1">
+ <Attribute attributeType="derived" changingOverTime="false" datatype="Money" modifier="published" name="versSumme" since="0.0.1">
   <DefaultValue isNull="true"/>
   <Label locale="en"/>
   <Description locale="en"/>

@@ -89,8 +89,9 @@ public class HausratZusatzdeckungsTyp extends ProductComponent {
 
 	/**
 	 * Gibt den Wert der Eigenschaft versSummenFaktor zurück.
-	 * 
+	 *
 	 * @since 0.0.1
+	 *
 	 * @generated
 	 */
 	@IpsAttribute(name = "versSummenFaktor", kind = AttributeKind.CONSTANT, valueSetKind = ValueSetKind.AllValues)
@@ -101,8 +102,9 @@ public class HausratZusatzdeckungsTyp extends ProductComponent {
 
 	/**
 	 * Setzt den Wert der Eigenschaft versSummenFaktor.
-	 * 
+	 *
 	 * @since 0.0.1
+	 *
 	 * @generated
 	 */
 	@IpsAttributeSetter("versSummenFaktor")
@@ -116,8 +118,9 @@ public class HausratZusatzdeckungsTyp extends ProductComponent {
 
 	/**
 	 * Setzt den Wert der Eigenschaft versSummenFaktor.
-	 * 
+	 *
 	 * @since 0.0.1
+	 *
 	 * @generated
 	 */
 	@IpsGenerated
@@ -127,8 +130,9 @@ public class HausratZusatzdeckungsTyp extends ProductComponent {
 
 	/**
 	 * Gibt den Wert der Eigenschaft maximaleVersSumme zurück.
-	 * 
+	 *
 	 * @since 0.0.1
+	 *
 	 * @generated
 	 */
 	@IpsAttribute(name = "maximaleVersSumme", kind = AttributeKind.CONSTANT, valueSetKind = ValueSetKind.AllValues)
@@ -139,8 +143,9 @@ public class HausratZusatzdeckungsTyp extends ProductComponent {
 
 	/**
 	 * Setzt den Wert der Eigenschaft maximaleVersSumme.
-	 * 
+	 *
 	 * @since 0.0.1
+	 *
 	 * @generated
 	 */
 	@IpsAttributeSetter("maximaleVersSumme")
@@ -154,8 +159,9 @@ public class HausratZusatzdeckungsTyp extends ProductComponent {
 
 	/**
 	 * Setzt den Wert der Eigenschaft maximaleVersSumme.
-	 * 
+	 *
 	 * @since 0.0.1
+	 *
 	 * @generated
 	 */
 	@IpsGenerated

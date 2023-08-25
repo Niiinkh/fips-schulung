@@ -12,6 +12,7 @@ import org.faktorips.runtime.IVisitorSupport;
 import org.faktorips.runtime.IDependantObject;
 import org.faktorips.runtime.IConfigurableModelObject;
 import org.faktorips.valueset.ValueSet;
+import org.faktorips.values.Decimal;
 import org.faktorips.values.Money;
 import org.faktorips.valueset.UnrestrictedValueSet;
 import org.faktorips.runtime.internal.ProductConfiguration;
@@ -24,6 +25,8 @@ import org.faktorips.runtime.model.type.AssociationKind;
 import org.faktorips.runtime.model.annotation.IpsInverseAssociation;
 import org.faktorips.runtime.model.annotation.IpsAssociationAdder;
 import org.faktorips.runtime.IProductComponent;
+
+import java.math.RoundingMode;
 import java.util.Calendar;
 import org.faktorips.runtime.IRuntimeRepository;
 import org.faktorips.runtime.IObjectReferenceStore;
@@ -48,7 +51,7 @@ import org.faktorips.runtime.annotation.IpsGenerated;
  * @generated
  */
 @IpsPolicyCmptType(name = "hausrat.HausratZusatzdeckung")
-@IpsAttributes({ "versSummer" })
+@IpsAttributes({ "versSumme" })
 @IpsAssociations({ "HausratVertrag" })
 @IpsConfiguredBy(HausratZusatzdeckungsTyp.class)
 @IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
@@ -64,21 +67,21 @@ public class HausratZusatzdeckung extends AbstractModelObject
 	 */
 	public static final String ASSOCIATION_HAUSRAT_VERTRAG = "hausratVertrag";
 	/**
-	 * Diese Konstante enthaelt den Namen der Eigenschaft versSummer.
+	 * Diese Konstante enthaelt den Namen der Eigenschaft versSumme.
 	 *
 	 * @since 0.0.1
 	 *
 	 * @generated
 	 */
-	public static final String PROPERTY_VERSSUMMER = "versSummer";
+	public static final String PROPERTY_VERSSUMME = "versSumme";
 	/**
-	 * Gibt die maximal erlaubten Werte fuer die Eigenschaft versSummer zurueck.
+	 * Gibt die maximal erlaubten Werte fuer die Eigenschaft versSumme zurueck.
 	 *
 	 * @since 0.0.1
 	 *
 	 * @generated
 	 */
-	public static final ValueSet<Money> MAX_ALLOWED_VALUES_FOR_VERS_SUMMER = new UnrestrictedValueSet<>(true);
+	public static final ValueSet<Money> MAX_ALLOWED_VALUES_FOR_VERS_SUMME = new UnrestrictedValueSet<>(true);
 	/**
 	 * Haelt eine Referenz auf die aktuell eingestellte Produktkonfiguration.
 	 *
@@ -122,16 +125,43 @@ public class HausratZusatzdeckung extends AbstractModelObject
 	}
 
 	/**
-	 * Gibt den erlaubten Wertebereich fuer das Attribut versSummer zurueck.
-	 *
+	 * Gibt den erlaubten Wertebereich fuer das Attribut versSumme zurueck.
+	 * 
 	 * @since 0.0.1
-	 *
 	 * @generated
 	 */
-	@IpsAllowedValues("versSummer")
+	@IpsAllowedValues("versSumme")
 	@IpsGenerated
-	public ValueSet<Money> getAllowedValuesForVersSummer() {
-		return MAX_ALLOWED_VALUES_FOR_VERS_SUMMER;
+	public ValueSet<Money> getAllowedValuesForVersSumme() {
+		return MAX_ALLOWED_VALUES_FOR_VERS_SUMME;
+	}
+
+	/**
+	 * Gibt den Wert des Attributs versSumme zurueck.
+	 * 
+	 * @since 0.0.1
+	 * @restrainedmodifiable
+	 */
+	@IpsAttribute(name = "versSumme", kind = AttributeKind.DERIVED_ON_THE_FLY, valueSetKind = ValueSetKind.AllValues)
+	@IpsGenerated
+	public Money getVersSumme() {
+		// begin-user-code
+		HausratZusatzdeckungsTyp zusatzdeckungstyp = getHausratZusatzdeckungsTyp();
+		if (zusatzdeckungstyp == null) {
+			return Money.NULL;
+		}
+		Decimal faktor = zusatzdeckungstyp.getVersSummenFaktor();
+		Money vsVertrag = getHausratVertrag().getVersSumme();
+		if (vsVertrag.isNull()) {
+			return Money.NULL;
+		}
+		Money vs = vsVertrag.multiply(faktor, RoundingMode.HALF_UP);
+		Money maxVs = zusatzdeckungstyp.getMaximaleVersSumme();
+		if (vs.greaterThan(maxVs)) {
+			return maxVs;
+		}
+		return vs;
+		// end-user-code
 	}
 
 	/**
@@ -141,11 +171,23 @@ public class HausratZusatzdeckung extends AbstractModelObject
 	 *
 	 * @restrainedmodifiable
 	 */
-	@IpsAttribute(name = "versSummer", kind = AttributeKind.DERIVED_ON_THE_FLY, valueSetKind = ValueSetKind.AllValues)
-	@IpsGenerated
 	public Money getVersSummer() {
 		// begin-user-code
-		return Money.NULL;
+		HausratZusatzdeckungsTyp zusatzdeckungstyp = getHausratZusatzdeckungsTyp();
+		if (zusatzdeckungstyp == null) {
+			return Money.NULL;
+		}
+		Decimal faktor = zusatzdeckungstyp.getVersSummenFaktor();
+		Money vsVertrag = getHausratVertrag().getVersSumme();
+		if (vsVertrag.isNull()) {
+			return Money.NULL;
+		}
+		Money vs = vsVertrag.multiply(faktor, RoundingMode.HALF_UP);
+		Money maxVs = zusatzdeckungstyp.getMaximaleVersSumme();
+		if (vs.greaterThan(maxVs)) {
+			return maxVs;
+		}
+		return vs;
 		// end-user-code
 	}
 
