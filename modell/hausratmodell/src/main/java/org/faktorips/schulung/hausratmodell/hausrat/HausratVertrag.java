@@ -17,6 +17,7 @@ import org.faktorips.runtime.IProductComponent;
 import java.util.Iterator;
 import org.faktorips.runtime.IRuntimeRepository;
 import org.faktorips.runtime.IValidationContext;
+import org.faktorips.runtime.validation.GenericRelevanceValidation;
 import org.faktorips.runtime.Severity;
 import org.faktorips.runtime.model.annotation.IpsValidationRule;
 import org.faktorips.runtime.Message;
@@ -1194,6 +1195,7 @@ public class HausratVertrag extends AbstractModelObject
 		if (!super.validateSelf(ml, context)) {
 			return STOP_VALIDATION;
 		}
+		ml.add(GenericRelevanceValidation.of(this, HausratVertrag.class, PROPERTY_VERSSUMME, context));
 		if (!pruefeWohnflaeche(ml, context)) {
 			return STOP_VALIDATION;
 		}

@@ -56,9 +56,9 @@
    <AllValues containsNull="true"/>
   </ValueSet>
  </Attribute>
- <Attribute attributeType="changeable" changingOverTime="false" datatype="Money" modifier="published" name="versSumme" since="0.0.1" valueSetConfiguredByProduct="true">
+ <Attribute attributeType="changeable" changingOverTime="false" datatype="Money" genericValidation="true" modifier="published" name="versSumme" since="0.0.1" valueSetConfiguredByProduct="true">
   <DefaultValue isNull="true"/>
-  <Label locale="de"/>
+  <Label locale="de" value="Versicherungssumme"/>
   <Description locale="de"/>
   <ValueSet abstract="false">
    <Range containsNull="false">
