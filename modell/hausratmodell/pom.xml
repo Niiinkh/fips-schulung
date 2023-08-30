@@ -14,7 +14,7 @@
 	<properties>
 		<!-- Faktor-IPS -->
 		<faktor-ips.version>23.6.3.release</faktor-ips.version>
-		<!-- Test dependencies--> 
+		<!-- Test dependencies-->
 		<junit.version>5.8.2</junit.version>
 		<assertj.version>3.24.2</assertj.version>
 		<!-- Project encodings -->
@@ -33,7 +33,12 @@
 			<artifactId>faktorips-valuetypes</artifactId>
 			<version>${faktor-ips.version}</version>
 		</dependency>
-		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.13.0</version>
+		</dependency>
+
 		<!-- Test Dependencies -->
 		<dependency>
 			<groupId>org.assertj</groupId>
@@ -47,7 +52,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

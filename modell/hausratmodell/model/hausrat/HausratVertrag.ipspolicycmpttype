@@ -68,10 +68,21 @@
    </Range>
   </ValueSet>
  </Attribute>
- <ValidationRuleDef activatedByDefault="true" changingOverTime="false" messageCode="error.HausratVertrag.pruefeWohnflaecheWertebereich" messageSeverity="error" modifier="published" name="pruefeWohnflaeche" since="0.0.1">
+ <ValidationRuleDef activatedByDefault="true" changingOverTime="false" messageCode="error.HausratVertrag.pruefeWohnflaeche" messageSeverity="error" modifier="published" name="pruefeWohnflaeche" since="0.0.1">
+  <ValidatedAttribute name="wohnflaeche"/>
   <MessageText>
    <InternationalString>
     <LocalizedString locale="de" text="Die Wohnflaeche {1} liegt außerhalb des erlaubten Wertebereichs ({2}-{3})."/>
+   </InternationalString>
+  </MessageText>
+  <Label locale="de"/>
+  <Description locale="de"/>
+ </ValidationRuleDef>
+ <ValidationRuleDef activatedByDefault="true" changingOverTime="false" messageCode="error.HausratVertrag.pruefePlz" messageSeverity="error" modifier="published" name="pruefePlz" since="0.0.1">
+  <ValidatedAttribute name="plz"/>
+  <MessageText>
+   <InternationalString>
+    <LocalizedString locale="de" text="Die Postleitzahl muss genau 5 Stellen haben und numerisch sein."/>
    </InternationalString>
   </MessageText>
   <Label locale="de"/>

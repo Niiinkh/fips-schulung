@@ -121,4 +121,68 @@ public class HausratVertragTest {
 				.containsExactly(HausratVertrag.PROPERTY_WOHNFLAECHE);
 	}
 
+	@Test
+	void testPruefePlz_gueltig() {
+		vertrag.setPlz("12345");
+
+		MessageList messages = vertrag.validate(context);
+
+		Message message = messages.getMessageByCode(HausratVertrag.MSG_CODE_PRUEFE_PLZ);
+		assertThat(message).isNull();
+	}
+
+	@Test
+	void testPruefePlz_null() {
+		vertrag.setPlz(null);
+
+		MessageList messages = vertrag.validate(context);
+
+		Message message = messages.getMessageByCode(HausratVertrag.MSG_CODE_PRUEFE_PLZ);
+		assertThat(message).isNotNull();
+	}
+
+	@Test
+	void testPruefePlz_zuKurz() {
+		vertrag.setPlz("1234");
+
+		MessageList messages = vertrag.validate(context);
+
+		Message message = messages.getMessageByCode(HausratVertrag.MSG_CODE_PRUEFE_PLZ);
+		assertThat(message).isNotNull();
+	}
+
+	@Test
+	void testPruefePlz_zuLang() {
+		vertrag.setPlz("123456");
+
+		MessageList messages = vertrag.validate(context);
+
+		Message message = messages.getMessageByCode(HausratVertrag.MSG_CODE_PRUEFE_PLZ);
+		assertThat(message).isNotNull();
+	}
+
+	@Test
+	void testPruefePlz_enthaeltNichtNurZiffern() {
+		vertrag.setPlz("A2345");
+
+		MessageList messages = vertrag.validate(context);
+
+		Message message = messages.getMessageByCode(HausratVertrag.MSG_CODE_PRUEFE_PLZ);
+		assertThat(message).isNotNull();
+	}
+	
+	@Test
+	void testPruefePlz_messageAttributeSindImFehlerfallKorrektGesetzt() {
+		vertrag.setPlz("A2345");
+
+		MessageList messages = vertrag.validate(context);
+
+		Message message = messages.getMessageByCode(HausratVertrag.MSG_CODE_PRUEFE_PLZ);
+		assertThat(message).isNotNull();
+		assertThat(message.getText())
+				.isEqualTo("Die Postleitzahl muss genau 5 Stellen haben und numerisch sein.");
+		assertThat(message.getSeverity()).isEqualTo(Severity.ERROR);
+		assertThat(message.getInvalidObjectProperties()).map(ObjectProperty::getProperty)
+				.containsExactly(HausratVertrag.PROPERTY_PLZ);
+	}
 }
