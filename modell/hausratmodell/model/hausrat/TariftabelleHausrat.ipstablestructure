@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TableStructure xmlns="http://www.faktorzehn.org" since="0.0.1" tableStructureType="multipleContents" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.faktorzehn.org https://doc.faktorzehn.org/schema/faktor-ips/23.6/TableStructure.xsd" xml:space="preserve">
- <Label locale="en"/>
- <Description locale="en"/>
+ <Label locale="de"/>
+ <Description locale="de"/>
  <Column datatype="String" name="Tarifzone" since="0.0.1">
-  <Label locale="en"/>
-  <Description locale="en"/>
+  <Label locale="de"/>
+  <Description locale="de"/>
  </Column>
  <Column datatype="Decimal" name="beitragssatz" since="0.0.1">
-  <Label locale="en" value="Beitragssatz je 1000 EUR"/>
-  <Description locale="en"/>
+  <Label locale="de" value="Beitragssatz je 1000 EUR"/>
+  <Description locale="de"/>
  </Column>
  <Index since="0.0.1" uniqueKey="true">
   <Item name="Tarifzone"/>
-  <Description locale="en"/>
+  <Description locale="de"/>
  </Index>
 </TableStructure>

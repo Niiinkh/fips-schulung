@@ -59,7 +59,7 @@ import org.faktorips.runtime.annotation.IpsGenerated;
 @IpsAttributes({ "produktname", "kurzbezeichnung", "vorschlagVersSummeProQm" })
 @IpsAssociations({ "HausratGrunddeckungstyp", "HausratZusatzdeckungsTyp" })
 @IpsConfigures(HausratVertrag.class)
-@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
+@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "de")
 public class HausratProdukt extends ProductComponent {
 
 	/**

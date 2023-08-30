@@ -54,7 +54,7 @@ import org.faktorips.runtime.annotation.IpsGenerated;
 @IpsAttributes({ "jahresbasisbeitrag", "beitragGemaesZahlweise" })
 @IpsAssociations({ "HausratVertrag" })
 @IpsConfiguredBy(HausratGrunddeckungstyp.class)
-@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
+@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "de")
 public class HausratGrunddeckung extends AbstractModelObject
 		implements IDeltaSupport, ICopySupport, IVisitorSupport, IDependantObject, IConfigurableModelObject {
 

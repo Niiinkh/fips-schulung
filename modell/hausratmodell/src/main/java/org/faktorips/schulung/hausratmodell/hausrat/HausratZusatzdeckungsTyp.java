@@ -40,7 +40,7 @@ import org.faktorips.runtime.annotation.IpsGenerated;
 @IpsProductCmptType(name = "hausrat.HausratZusatzdeckungsTyp")
 @IpsAttributes({ "versSummenFaktor", "maximaleVersSumme" })
 @IpsConfigures(HausratZusatzdeckung.class)
-@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
+@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "de")
 public class HausratZusatzdeckungsTyp extends ProductComponent {
 
 	/**

@@ -24,7 +24,7 @@ import org.faktorips.runtime.annotation.IpsGenerated;
  */
 @IpsTableStructure(name = "hausrat.TariftabelleHausrat", type = TableStructureKind.MULTIPLE_CONTENTS, columns = {
 		"Tarifzone", "beitragssatz" })
-@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
+@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "de")
 public class TariftabelleHausrat extends Table<TariftabelleHausratRow> {
 
 	/**

@@ -64,7 +64,7 @@ import org.w3c.dom.Element;
 @IpsAttributes({ "zahlweise", "plz", "tarifzone", "wohnflaeche", "vorschlagVersSumme", "versSumme" })
 @IpsAssociations({ "HausratGrunddeckung", "HausratZusatzdeckung" })
 @IpsConfiguredBy(HausratProdukt.class)
-@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
+@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "de")
 public class HausratVertrag extends AbstractModelObject
 		implements IDeltaSupport, ICopySupport, IVisitorSupport, IConfigurableModelObject {
 

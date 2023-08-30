@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ProductCmptType2 xmlns="http://www.faktorzehn.org" changingOverTime="false" configurationForPolicyCmptType="true" policyCmptType="hausrat.HausratVertrag" since="0.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.faktorzehn.org https://doc.faktorzehn.org/schema/faktor-ips/23.6/ProductCmptType2.xsd" xml:space="preserve">
- <Label locale="en"/>
- <Description locale="en">Das HausratProdukt ist das Grundmodell für alle Produktbausteine der Sparte Hausrat</Description>
+ <Label locale="de"/>
+ <Description locale="de">Das HausratProdukt ist das Grundmodell für alle Produktbausteine der Sparte Hausrat</Description>
  <Attribute changingOverTime="false" datatype="String" modifier="published" name="produktname" since="0.0.1" visible="true">
   <DefaultValue isNull="true"/>
-  <Label locale="en"/>
-  <Description locale="en">Der Name des Verkaufsprodukts</Description>
+  <Label locale="de"/>
+  <Description locale="de">Der Name des Verkaufsprodukts</Description>
   <ValueSet abstract="false">
    <AllValues containsNull="true"/>
   </ValueSet>
  </Attribute>
  <Attribute changingOverTime="false" datatype="String" modifier="published" name="kurzbezeichnung" since="0.0.1" visible="true">
   <DefaultValue isNull="true"/>
-  <Label locale="en"/>
-  <Description locale="en">Die Kurzbezeichnung des Produkts (für den internen Gebrauch)</Description>
+  <Label locale="de"/>
+  <Description locale="de">Die Kurzbezeichnung des Produkts (für den internen Gebrauch)</Description>
   <ValueSet abstract="false">
    <AllValues containsNull="true"/>
   </ValueSet>
  </Attribute>
  <Attribute changingOverTime="false" datatype="Money" modifier="published" name="vorschlagVersSummeProQm" since="0.0.1" visible="true">
   <DefaultValue isNull="true"/>
-  <Label locale="en"/>
-  <Description locale="en">Vorschlag der Versicherungssumme pro Quadratmeter</Description>
+  <Label locale="de"/>
+  <Description locale="de">Vorschlag der Versicherungssumme pro Quadratmeter</Description>
   <ValueSet abstract="false">
    <AllValues containsNull="true"/>
   </ValueSet>
  </Attribute>
  <Association associationType="aggr" changingOverTime="false" maxCardinality="1" minCardinality="1" modifier="published" relevant="true" since="0.0.1" target="hausrat.HausratGrunddeckungstyp" targetRoleSingular="HausratGrunddeckungstyp">
-  <Label locale="en"/>
-  <Description locale="en"/>
+  <Label locale="de"/>
+  <Description locale="de"/>
  </Association>
  <Association associationType="aggr" changingOverTime="false" maxCardinality="*" minCardinality="0" modifier="published" relevant="true" since="0.0.1" target="hausrat.HausratZusatzdeckungsTyp" targetRolePlural="HausratZusatzdeckungsTypen" targetRoleSingular="HausratZusatzdeckungsTyp">
-  <Label locale="en"/>
-  <Description locale="en"/>
+  <Label locale="de"/>
+  <Description locale="de"/>
  </Association>
  <Category defaultForProductCmptTypeAttributes="true" name="Eigenschaften" position="left">
-  <Label locale="en"/>
-  <Description locale="en"/>
+  <Label locale="de"/>
+  <Description locale="de"/>
  </Category>
  <Category defaultForFormulaSignatureDefinitions="true" defaultForTableStructureUsages="true" name="Tabellen und Berechnungsvorschriften" position="left">
-  <Label locale="en"/>
-  <Description locale="en"/>
+  <Label locale="de"/>
+  <Description locale="de"/>
  </Category>
  <Category defaultForValidationRules="true" name="Validierungsregeln" position="left">
-  <Label locale="en"/>
-  <Description locale="en"/>
+  <Label locale="de"/>
+  <Description locale="de"/>
  </Category>
  <Category defaultForPolicyCmptTypeAttributes="true" name="Vorbelegungen und Wertebereiche" position="right">
-  <Label locale="en"/>
-  <Description locale="en"/>
+  <Label locale="de"/>
+  <Description locale="de"/>
  </Category>
 </ProductCmptType2>

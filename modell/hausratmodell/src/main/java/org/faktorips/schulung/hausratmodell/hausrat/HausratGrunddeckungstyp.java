@@ -23,7 +23,7 @@ import org.faktorips.runtime.annotation.IpsGenerated;
 @IpsProductCmptType(name = "hausrat.HausratGrunddeckungstyp")
 @IpsConfigures(HausratGrunddeckung.class)
 @IpsTableUsages({ "tariftabelle" })
-@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
+@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "de")
 public class HausratGrunddeckungstyp extends ProductComponent {
 
 	/**

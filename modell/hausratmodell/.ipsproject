@@ -450,7 +450,7 @@
         </SupportedLanguages>
     -->
  <SupportedLanguages>
-  <SupportedLanguage defaultLanguage="true" locale="en"/>
+  <SupportedLanguage defaultLanguage="true" locale="de"/>
  </SupportedLanguages>
 
  <!--

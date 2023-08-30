@@ -18,7 +18,7 @@ import org.faktorips.runtime.annotation.IpsGenerated;
  *
  * @generated
  */
-@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
+@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "de")
 @IpsEnumType(name = "hausrat.Risikoklasse", attributeNames = { "id", "name" })
 @IpsExtensibleEnum(enumContentName = "Risikoklasse")
 public final class Risikoklasse implements Serializable, Comparable<Risikoklasse> {

@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PolicyCmptType xmlns="http://www.faktorzehn.org" configurableByProductCmptType="true" productCmptType="hausrat.HausratGrunddeckungstyp" since="0.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.faktorzehn.org https://doc.faktorzehn.org/schema/faktor-ips/23.6/PolicyCmptType.xsd" xml:space="preserve">
- <Label locale="en"/>
- <Description locale="en"/>
+ <Label locale="de"/>
+ <Description locale="de"/>
  <Method datatype="void" modifier="published" name="berechneJahresbasisbeitrag" since="0.0.1">
-  <Label locale="en"/>
-  <Description locale="en"/>
+  <Label locale="de"/>
+  <Description locale="de"/>
  </Method>
  <Association associationType="reverseComp" configurable="true" inverseAssociation="HausratGrunddeckung" maxCardinality="1" minCardinality="1" modifier="published" since="0.0.1" target="hausrat.HausratVertrag" targetRoleSingular="HausratVertrag">
-  <Label locale="en"/>
-  <Description locale="en"/>
+  <Label locale="de"/>
+  <Description locale="de"/>
  </Association>
  <Attribute attributeType="computed" changingOverTime="false" datatype="Money" modifier="published" name="jahresbasisbeitrag" since="0.0.1">
   <DefaultValue isNull="true"/>
-  <Label locale="en"/>
-  <Description locale="en"/>
+  <Label locale="de"/>
+  <Description locale="de"/>
   <ValueSet abstract="false">
    <AllValues containsNull="true"/>
   </ValueSet>
  </Attribute>
  <Attribute attributeType="derived" changingOverTime="false" datatype="Money" modifier="published" name="beitragGemaesZahlweise" since="0.0.1">
   <DefaultValue isNull="true"/>
-  <Label locale="en"/>
-  <Description locale="en"/>
+  <Label locale="de"/>
+  <Description locale="de"/>
   <ValueSet abstract="false">
    <AllValues containsNull="true"/>
   </ValueSet>

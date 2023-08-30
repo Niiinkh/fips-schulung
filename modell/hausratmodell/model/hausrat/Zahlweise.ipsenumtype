@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnumType xmlns="http://www.faktorzehn.org" enumContentName="hausrat.Zahlweise" since="0.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.faktorzehn.org https://doc.faktorzehn.org/schema/faktor-ips/23.6/EnumType.xsd" xml:space="preserve">
- <Description locale="en"/>
+ <Description locale="de"/>
  <EnumValue>
-  <Description locale="en"/>
+  <Description locale="de"/>
   <EnumAttributeValue isNull="false">12</EnumAttributeValue>
   <EnumAttributeValue isNull="false">Monatlich</EnumAttributeValue>
   <EnumLiteralNameAttributeValue isNull="false">MONATLICH</EnumLiteralNameAttributeValue>
  </EnumValue>
  <EnumValue>
-  <Description locale="en"/>
+  <Description locale="de"/>
   <EnumAttributeValue isNull="false">4</EnumAttributeValue>
   <EnumAttributeValue isNull="false">Quartalsweise</EnumAttributeValue>
   <EnumLiteralNameAttributeValue isNull="false">QUARTALSWEISE</EnumLiteralNameAttributeValue>
  </EnumValue>
  <EnumValue>
-  <Description locale="en"/>
+  <Description locale="de"/>
   <EnumAttributeValue isNull="false">2</EnumAttributeValue>
   <EnumAttributeValue isNull="false">Halbjährlich</EnumAttributeValue>
   <EnumLiteralNameAttributeValue isNull="false">HALBJAEHRLICH</EnumLiteralNameAttributeValue>
  </EnumValue>
  <EnumValue>
-  <Description locale="en"/>
+  <Description locale="de"/>
   <EnumAttributeValue isNull="false">1</EnumAttributeValue>
   <EnumAttributeValue isNull="false">Jährlich</EnumAttributeValue>
   <EnumLiteralNameAttributeValue isNull="false">JAEHRLICH</EnumLiteralNameAttributeValue>
  </EnumValue>
  <EnumValue>
-  <Description locale="en"/>
+  <Description locale="de"/>
   <EnumAttributeValue isNull="false">0</EnumAttributeValue>
   <EnumAttributeValue isNull="false">Einmalzahlung</EnumAttributeValue>
   <EnumLiteralNameAttributeValue isNull="false">EINMALZAHLUNG</EnumLiteralNameAttributeValue>
  </EnumValue>
  <EnumAttribute datatype="int" identifier="true" name="id" since="0.0.1" unique="true">
-  <Label locale="en" value="Zahlungen pro Jahr"/>
-  <Description locale="en"/>
+  <Label locale="de" value="Zahlungen pro Jahr"/>
+  <Description locale="de"/>
  </EnumAttribute>
  <EnumAttribute datatype="String" name="name" since="0.0.1" unique="true" usedAsNameInFaktorIpsUi="true">
-  <Label locale="en" value="(Fachliche) Bezeichnung"/>
-  <Description locale="en"/>
+  <Label locale="de" value="(Fachliche) Bezeichnung"/>
+  <Description locale="de"/>
  </EnumAttribute>
  <EnumLiteralNameAttribute datatype="String" defaultValueProviderAttribute="name" name="LITERAL_NAME" since="0.0.1" unique="true">
-  <Label locale="en"/>
-  <Description locale="en"/>
+  <Label locale="de"/>
+  <Description locale="de"/>
  </EnumLiteralNameAttribute>
 </EnumType>

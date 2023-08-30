@@ -22,7 +22,7 @@ import org.faktorips.runtime.annotation.IpsGenerated;
  */
 @IpsTableStructure(name = "hausrat.Tarifzonentabelle", type = TableStructureKind.SINGLE_CONTENT, columns = { "plzVon",
 		"plzBis", "Tarifzone" })
-@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
+@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "de")
 public class Tarifzonentabelle extends Table<TarifzonentabelleRow> {
 
 	public static final String DEFAULT_TARIFZONE = "I";

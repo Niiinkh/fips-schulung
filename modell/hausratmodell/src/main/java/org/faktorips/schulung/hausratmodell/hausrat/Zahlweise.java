@@ -13,7 +13,7 @@ import org.faktorips.runtime.annotation.IpsGenerated;
  *
  * @generated
  */
-@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "en")
+@IpsDocumented(bundleName = "org.faktorips.schulung.hausratmodell.model-label-and-descriptions", defaultLocale = "de")
 @IpsEnumType(name = "hausrat.Zahlweise", attributeNames = { "id", "name" })
 public enum Zahlweise {
 	/**
